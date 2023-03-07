@@ -1,12 +1,13 @@
-
+import {BrowserRouter, Routes,Route} from "react-router-dom";
+import MyTrip from "./pages/mytrip";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-       <p>hello</p>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+          <Route path="/mytrip" element={<MyTrip/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
