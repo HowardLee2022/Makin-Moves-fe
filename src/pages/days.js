@@ -14,7 +14,8 @@ const Days = (prop) => {
     let {id} = useParams();
 
     return (
-        console.log(id)
+        console.log("hello")
+        
     
     )
 }
