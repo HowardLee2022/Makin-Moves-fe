@@ -4,7 +4,12 @@ import { Container } from 'react-bootstrap';
 import Home from "./pages/Home";
 import MyTrip from "./pages/mytrip";
 import Days from "./pages/days";
+<<<<<<< HEAD
+import Activities from "./pages/activities"
+
+=======
 import Nav from "./components/Nav"
+>>>>>>> dev
 import API from "./utils/API";
 
 class App extends Component{
@@ -22,6 +27,7 @@ class App extends Component{
          <Route path="/" element={<Home/>}/>
          <Route path="/mytrips" element={<MyTrip/>}/>
          <Route path="/mytrips/:id" element = {<Days/>}/>
+         <Route path="/mytrips/days/:id" element ={<Activities/>}/>
        </Routes>
       </BrowserRouter>
       </Container>
