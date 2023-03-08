@@ -7,7 +7,7 @@ const MyTrips = () => {
     const [trips, setTrips] = useState([])
 
     const fetchTrips = () => {
-        API.getUserData(2).then(data => {
+        API.getUserData(1).then(data => {
             setTrips(data.Trips)
             console.log(data);
         
