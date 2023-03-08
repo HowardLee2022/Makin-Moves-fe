@@ -3,6 +3,7 @@ import {BrowserRouter, Routes,Route} from "react-router-dom"
 import { Container } from 'react-bootstrap';
 import Home from "./pages/Home";
 import MyTrip from "./pages/mytrip";
+import Days from "./pages/days";
 
 import API from "./utils/API";
 
@@ -19,6 +20,7 @@ class App extends Component{
        <Routes>
          <Route path="/" element={<Home/>}/>
          <Route path="/mytrips" element={<MyTrip/>}/>
+         <Route path="/mytrips/:id" element = {<Days/>}/>
        </Routes>
       </BrowserRouter>
       </Container>
