@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import MyTrip from "./pages/mytrip";
 import AddTrip from "./pages/addtrip";
 import Register from "./pages/Register";
+import Nav from "./components/Nav"
 
 import API from "./utils/API";
 
@@ -18,6 +19,7 @@ class App extends Component{
     return (
       <Container>
           <BrowserRouter>
+          <Nav/>
        <Routes>
          <Route path="/" element={<Home/>}/>
          <Route path="/mytrips" element={<MyTrip/>}/>
