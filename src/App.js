@@ -6,6 +6,7 @@ import MyTrip from "./pages/mytrip";
 import AddTrip from "./pages/addtrip";
 import Register from "./pages/Register";
 import Nav from "./components/Nav"
+import Days from "./pages/days";
 
 import API from "./utils/API";
 
