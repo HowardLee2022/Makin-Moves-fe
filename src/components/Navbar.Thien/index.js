@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link} from "react-router-dom";
 import "./style.css"
 
 class Navbar extends React.Component {
@@ -61,7 +61,7 @@ class Navbar extends React.Component {
 
     } else {
       if (this.state.shouldRedirectToChat) {
-        return <Redirect to="/chat"></Redirect>
+        return <redirect to="/chat"></redirect>
       } else {
         return (
           <nav className="navbar navbar-expand-lg fixed-top navbar-light bg-white py-0">
