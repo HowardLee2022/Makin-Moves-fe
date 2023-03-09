@@ -9,7 +9,7 @@ function Carousel(props) {
         <div className="carousel-item">
           <div className="d-block w-100 img1" />
           <div className="carousel-caption">
-            <h1><a href="https://ranchosantana.com/">Rancho Santana</a></h1>
+            <h1><a href="https://www.visithalongbay.com">Ha Long Bay, VietNam</a></h1>
           </div>
         </div>
       </div>

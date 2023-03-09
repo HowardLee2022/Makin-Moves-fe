@@ -1,13 +1,12 @@
 import React, { Component, createRef } from "react";
 import "./style.css"
+import API from "../../utils/API";
 
 class CreateUser extends Component {
 constructor(props) {
    super(props);
    this.form = createRef();
-   console.log(this.props,props)
 }
-
    state = {
       username: "",
       email: "",
@@ -54,33 +53,19 @@ constructor(props) {
             errorConfirm: ""
          });
       } else {
-         fetch("/auth/signup", {
-            method: "POST",
-            credentials: "include",
-            mode: "cors",
-            body: JSON.stringify({
-                username: this.state.username,
-                email: this.state.email,
-                password: this.state.password
-            }),
-            headers: new Headers({
-               "Content-Type": "application/json"
-            })
+         const newUser = {
+            username:this.state.username,
+            email:this.state.email,
+            password:this.state.password
+         }
+         console.log(newUser);
+         API.signup(newUser).then(data => {
+            this.props.methods.setUserId(data.username)
+            this.props.methods.setToken(data.token)
+            this.props.methods.setIsloggedIn(true)
+            location.href = `./mytrips`
+   
          })
-         .then(response => {
-            if (!response.ok) {
-               response.text().then((body) => {
-                  this.setState({
-                     errorRequest: body + " Please enter different username."
-                  })
-                })
-               return;
-            }
-            this.props.login().then( () => {
-               this.props.history.push('/profile')
-            })
-         })
-         .catch(err => console.log(err));
 
          this.setState({
             username: "",
@@ -97,7 +82,7 @@ constructor(props) {
    
    render() {
       return (
-         <form ref={this.form} autocomplete="off" className="p-4">
+         <form ref={this.form} autoComplete="off" className="p-4">
             <div className="form-group">
                <label htmlFor="username">Username</label>
                <input className="form-control"
