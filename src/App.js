@@ -4,8 +4,13 @@ import { Container } from 'react-bootstrap';
 import Home from "./pages/Home";
 // import Navbar from "./components/Navbar.Thien"
 import MyTrip from "./pages/mytrip";
-import Register from "./pages/Register";
+import Days from "./pages/days";
+<<<<<<< HEAD
+import Activities from "./pages/activities"
 
+=======
+import Nav from "./components/Nav"
+>>>>>>> dev
 import API from "./utils/API";
 
 class App extends Component{
@@ -19,10 +24,12 @@ class App extends Component{
       <Container>
         {/* <Navbar logOut={this.logOut} isLoggedIn={this.state.isLoggedIn} username={this.state.username}/> */}
           <BrowserRouter>
+          <Nav/>
        <Routes>
          <Route path="/" element={<Home/>}/>
          <Route path="/mytrips" element={<MyTrip/>}/>
-         <Route path="/Register" element={<Register/>}/>
+         <Route path="/mytrips/:id" element = {<Days/>}/>
+         <Route path="/mytrips/days/:id" element ={<Activities/>}/>
        </Routes>
       </BrowserRouter>
       </Container>
