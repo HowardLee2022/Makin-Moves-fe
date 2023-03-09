@@ -13,7 +13,7 @@ function Register(props) {
                     <CreateUser {...props}/>
                 </Col>
                 <Col xs={{span:12, order:1}} md={{span: 6, order:2}} data-aos="fade-zoom-in">
-                    <h1 style={{textAlign:"center" , paddingTop: "100px", paddingBottom: "100px"}}>Sign Up to start Makin Moves!</h1>
+                    <h1 style={{textAlign:"center" , paddingTop: "10px", paddingBottom: "100px"}}>Sign Up to start Makin Moves!</h1>
                 </Col>
             </Row>
         </Container>

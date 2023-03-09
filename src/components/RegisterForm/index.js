@@ -97,7 +97,7 @@ constructor(props) {
    
    render() {
       return (
-         <form ref={this.form} autocomplete="off" className="p-4">
+         <form ref={this.form} autoComplete="off" className="p-4">
             <div className="form-group">
                <label htmlFor="username">Username</label>
                <input className="form-control"
