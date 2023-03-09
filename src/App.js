@@ -9,6 +9,7 @@ import Days from "./pages/days";
 import Activities from "./pages/activities";
 import Register from "./pages/Register"
 import Nav from "./components/Nav";
+import Addtrip from"./pages/addtrip";
 import API from "./utils/API";
 
 // class App extends Component{
@@ -22,6 +23,13 @@ function App(){
   const [token, setToken] = useState("");
   const [userId, setUserId] = useState(0);
   const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  const logout = ()=>{
+    setToken('');
+    setUserId(0);
+    setIsLoggedIn(false);
+    localStorage.removeItem("token")
+  }
   // useEffect(()=>{
   //   const savedToken = localStorage.getItem("token");
   //   console.log(savedToken)
@@ -42,10 +50,11 @@ function App(){
       <Container>
         {/* <Navbar logOut={this.logOut} isLoggedIn={this.state.isLoggedIn} username={this.state.username}/> */}
           <BrowserRouter>
-          <Nav isLoggedIn={isLoggedIn} userId={userId}/>
+          <Nav isLoggedIn={isLoggedIn} userId={userId} logout={logout}/>
        <Routes>
          <Route path="/" element={<Home/>}/>
-         <Route path="/mytrips" element={<MyTrip/>}/>
+         <Route path="/mytrips/addtrip" element={<Addtrip userId={userId} />}/>
+         <Route path="/mytrips" element={<MyTrip userId={userId} />}/>
          <Route path="/mytrips/:id" element = {<Days/>}/>
          <Route path="/mytrips/days/:id" element ={<Activities/>}/>
          <Route path="/Register" element ={<Register setToken={setToken} setUserId={setUserId} setIsLoggedIn={setIsLoggedIn} />}/>
