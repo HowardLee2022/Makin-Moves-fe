@@ -1,5 +1,5 @@
 
-const URL_PREFIX="http://localhost:3000"
+const URL_PREFIX="http://localhost:3001"
 
 const API = {
     getUserData:id=>{
@@ -11,7 +11,7 @@ const API = {
             body:JSON.stringify(formData),
             headers:{
                 "Content-Type":"application/json",
-                "authorization":`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6IkphY2tpZWxlZSIsImlkIjoyLCJpYXQiOjE2NzgzMDExNzUsImV4cCI6MTY3ODMxMTk3NX0.d9GvNkYIeLa0s-Fah0ZrEqDIoWtVKDT4Q7ApUChIBnk`
+                "authorization":`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikhvd2FyZGxlZSIsImlkIjoxLCJpYXQiOjE2NzgzODI4ODMsImV4cCI6MTY3ODM5MzY4M30.9Cxq8_1Ru38li1kkk8A4-Zkv7nqL_FAoQ-2e-aqQuiE`
             }
         })
     },
@@ -26,7 +26,7 @@ const API = {
             body:JSON.stringify(daysData),
             headers:{
                 "Content-Type":"application/json",
-                "authorization":`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikhvd2FyZGxlZSIsImlkIjoxLCJpYXQiOjE2NzgzMTI3NzEsImV4cCI6MTY3ODMyMzU3MX0.N6ImkSwmgYTmOJCYx11Ub2kCq3jWeY_SPuYVNKxE00I`
+                "authorization":`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikhvd2FyZGxlZSIsImlkIjoxLCJpYXQiOjE2NzgzODI4ODMsImV4cCI6MTY3ODM5MzY4M30.9Cxq8_1Ru38li1kkk8A4-Zkv7nqL_FAoQ-2e-aqQuiE`
             }
         })
     },
