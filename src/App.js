@@ -42,7 +42,7 @@ function App(){
       <Container>
         {/* <Navbar logOut={this.logOut} isLoggedIn={this.state.isLoggedIn} username={this.state.username}/> */}
           <BrowserRouter>
-          <Nav/>
+          <Nav isLoggedIn={isLoggedIn} userId={userId}/>
        <Routes>
          <Route path="/" element={<Home/>}/>
          <Route path="/mytrips" element={<MyTrip/>}/>
