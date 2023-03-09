@@ -55,6 +55,7 @@ const Days = (prop) => {
         e.preventDefault();
         API.addDays(daysData).then((response) => {
             if(response.status == 200) {
+                location.href = `./${id}`
             }
         })  
     }
