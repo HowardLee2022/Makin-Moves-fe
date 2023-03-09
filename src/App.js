@@ -1,5 +1,5 @@
 // import React, { Component } from 'react';
-import React,{useState} from 'react';
+import React,{useState, useEffect} from 'react';
 import {BrowserRouter, Routes,Route} from "react-router-dom";
 import { Container } from 'react-bootstrap';
 import Home from "./pages/Home";
@@ -30,21 +30,21 @@ function App(){
     setIsLoggedIn(false);
     localStorage.removeItem("token")
   }
-  // useEffect(()=>{
-  //   const savedToken = localStorage.getItem("token");
-  //   console.log(savedToken)
-  //   if(savedToken){
-  //     API.isValidToken(savedToken).then(tokenData=>{
-  //       if(tokenData.isValid){
-  //         setToken(savedToken);
-  //         setUserId(tokenData.user.id)
-  //         setIsLoggedIn(true)
-  //       } else {
-  //         localStorage.removeItem("token")
-  //       }
-  //     })
-  //   }
-  // },[])
+  useEffect(()=>{
+    const savedToken = localStorage.getItem("token");
+    console.log(savedToken)
+    if(savedToken){
+      API.isValidToken(savedToken).then(tokenData=>{
+        if(tokenData.isValid){
+          setToken(savedToken);
+          setUserId(tokenData.user.id)
+          setIsLoggedIn(true)
+        } else {
+          localStorage.removeItem("token")
+        }
+      })
+    }
+  },[])
   
     return (
       <Container>
@@ -53,7 +53,7 @@ function App(){
           <Nav isLoggedIn={isLoggedIn} userId={userId} logout={logout}/>
        <Routes>
          <Route path="/" element={<Home/>}/>
-         <Route path="/mytrips/addtrip" element={<Addtrip userId={userId} />}/>
+         <Route path="/mytrips/addtrip" element={<Addtrip userId={userId} token={token}/>}/>
          <Route path="/mytrips" element={<MyTrip userId={userId} />}/>
          <Route path="/mytrips/:id" element = {<Days/>}/>
          <Route path="/mytrips/days/:id" element ={<Activities/>}/>

@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import API from "../utils/API"
 
-function AddTrip() {
+function AddTrip(prop) {
     
     const [formData, setFormData] = useState({
         title: "",
@@ -20,7 +20,7 @@ function AddTrip() {
 
     const handleSubmit = (e) =>{
         e.preventDefault();
-        API.addTrip(formData).then((response) => {
+        API.addTrip(formData,prop.token).then((response) => {
             if(response.status == 200) {
                 setFormData({
                     title: "",
@@ -29,7 +29,7 @@ function AddTrip() {
                     guest:  "",
                     description: "",
                 })
-                location.href = "./mytrips"    
+                // location.href = "./mytrips"    
             }
         })  
     }

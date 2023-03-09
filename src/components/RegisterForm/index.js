@@ -59,10 +59,12 @@ constructor(props) {
             password:this.state.password
          }
          API.signup(newUser).then(data => {
-            console.log(data)
+            if(data.token){
             this.props.methods.setUserId(data.user.id)
             this.props.methods.setToken(data.token)
             this.props.methods.setIsLoggedIn(true)
+            }
+            localStorage.setItem("token",data.token)
             // location.href = `./mytrips`
    
          })
