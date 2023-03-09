@@ -3,11 +3,11 @@ import API from "../utils/API"
 import React,{useState, useEffect} from 'react'
 
 
-const MyTrips = () => {
+const MyTrips = (prop) => {
     const [trips, setTrips] = useState([])
 
     const fetchTrips = () => {
-        API.getUserData(1).then(data => {
+        API.getUserData(prop.userId).then(data => {
             setTrips(data.Trips)
             console.log(data);
         

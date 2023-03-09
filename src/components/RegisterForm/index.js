@@ -58,12 +58,14 @@ constructor(props) {
             email:this.state.email,
             password:this.state.password
          }
-         console.log(newUser);
          API.signup(newUser).then(data => {
-            this.props.methods.setUserId(data.username)
+            if(data.token){
+            this.props.methods.setUserId(data.user.id)
             this.props.methods.setToken(data.token)
-            this.props.methods.setIsloggedIn(true)
-            location.href = `./mytrips`
+            this.props.methods.setIsLoggedIn(true)
+            }
+            localStorage.setItem("token",data.token)
+            // location.href = `./mytrips`
    
          })
 
