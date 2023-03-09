@@ -10,7 +10,7 @@ import Activities from "./pages/activities";
 import Register from "./pages/Register"
 import Nav from "./components/Nav";
 import API from "./utils/API";
-
+import Login from "./pages/Login"
 // class App extends Component{
 //   state = {
 //     isLoggedIn: false,
@@ -49,6 +49,7 @@ function App(){
          <Route path="/mytrips/:id" element = {<Days/>}/>
          <Route path="/mytrips/days/:id" element ={<Activities/>}/>
          <Route path="/Register" element ={<Register setToken={setToken} setUserId={setUserId} setIsLoggedIn={setIsLoggedIn} />}/>
+         <Route path="/Login" element ={<Login setToken={setToken} setUserId={setUserId} setIsLoggedIn={setIsLoggedIn} />}/>
        </Routes>
       </BrowserRouter>
       </Container>

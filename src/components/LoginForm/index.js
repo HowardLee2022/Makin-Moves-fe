@@ -1,7 +1,10 @@
 import React, { Component } from "react";
-
+import API from "../../utils/API";
 
 class LoginForm extends Component {
+    constructor(props) {
+        super(props);
+     }
     state = {
         username: "",
         email: "",
@@ -20,36 +23,50 @@ class LoginForm extends Component {
     handleFormSubmit = event => {
         event.preventDefault();
         if (this.state.username && this.state.email && this.state.password) {
-            fetch("/auth/login", {
-                method: "POST",
-                credentials: "include",
-                mode: "cors",
-                body: JSON.stringify({
-                    username: this.state.username,
-                    email: this.state.email,
-                    password: this.state.password
-                }),
-                headers: new Headers({
-                    "Content-Type": "application/json"
-                })
-            })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(response.statusText);
-                    }
-                    this.props.login().then(() => {
-                        global.$("#loginModal").modal("hide");
-                        this.props.history.push('/profile')
-                    })
+            // fetch("/auth/login", {
+            //     method: "POST",
+            //     credentials: "include",
+            //     mode: "cors",
+            //     body: JSON.stringify({
+            //         username: this.state.username,
+            //         email: this.state.email,
+            //         password: this.state.password
+            //     }),
+            //     headers: new Headers({
+            //         "Content-Type": "application/json"
+            //     })
+            // })
+            //     .then(response => {
+            //         if (!response.ok) {
+            //             throw new Error(response.statusText);
+            //         }
+            //         this.props.login().then(() => {
+            //             global.$("#loginModal").modal("hide");
+            //             this.props.history.push('/profile')
+            //         })
 
-                })
-                .catch(err => {
-                    this.setState({
-                        errorUsername: "",
-                        errorEmail: "",
-                        errorPassword: "Incorrect Username and Email or Password. Please try again."
-                    })
-                });
+            //     })
+            //     .catch(err => {
+            //         this.setState({
+            //             errorUsername: "",
+            //             errorEmail: "",
+            //             errorPassword: "Incorrect Username and Email or Password. Please try again."
+            //         })
+            //     });else {
+         const userObj = {
+            username:this.state.username,
+            email:this.state.email,
+            password:this.state.password
+         }
+         console.log(userObj);
+         API.login(userObj).then(data => {
+            console.log(this.props);
+            this.props.methods.setUserId(data.username)
+            this.props.methods.setToken(data.token)
+            this.props.methods.setIsLoggedIn(true)
+            location.href = `./mytrips`
+   
+         })
 
             this.setState({
                 username: "",
