@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {BrowserRouter, Routes,Route} from "react-router-dom"
 import { Container } from 'react-bootstrap';
 import Home from "./pages/Home";
+// import Navbar from "./components/Navbar.Thien"
 import MyTrip from "./pages/mytrip";
 import Days from "./pages/days";
 <<<<<<< HEAD
@@ -21,6 +22,7 @@ class App extends Component{
   render(){  
     return (
       <Container>
+        {/* <Navbar logOut={this.logOut} isLoggedIn={this.state.isLoggedIn} username={this.state.username}/> */}
           <BrowserRouter>
           <Nav/>
        <Routes>
