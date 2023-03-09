@@ -15,29 +15,7 @@ class App extends Component{
     username: ""
   }
 
-  // componentDidMount() {
-  //   this.logIn()
-  // }
-
-  // logIn = () => {
-  //   return API.getUser()
-  //   .then(user => {
-  //     this.setState({
-  //       isLoggedIn: user.data.loggedIn,
-  //       username: user.data.username
-  //     });
-  //   })
-  // }
-
-  // logOut = () => {
-  //   API.logout()
-  //     .then(res => {
-  //     this.setState({
-  //       isLoggedIn: false,
-  //       username: ""
-  //     });
-  //   })
-  // }
+  
 
   render(){  
     return (
