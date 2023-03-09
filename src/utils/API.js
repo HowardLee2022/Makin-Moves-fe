@@ -42,6 +42,15 @@ const API = {
             }
         }).then(res=>res.json())
     },
+    login:userObj=>{
+        return fetch(`${URL_PREFIX}/api/users/login`,{
+            method:"POST",
+            body:JSON.stringify(userObj),
+            headers:{
+                "Content-Type":"application/json"
+            }
+        }).then(res=>res.json())
+    },
 
 }
 export default API
