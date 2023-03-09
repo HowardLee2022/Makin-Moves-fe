@@ -5,12 +5,7 @@ import Home from "./pages/Home";
 // import Navbar from "./components/Navbar.Thien"
 import MyTrip from "./pages/mytrip";
 import Days from "./pages/days";
-<<<<<<< HEAD
-import Activities from "./pages/activities"
-
-=======
 import Nav from "./components/Nav"
->>>>>>> dev
 import API from "./utils/API";
 
 class App extends Component{
