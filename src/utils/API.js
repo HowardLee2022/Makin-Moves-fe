@@ -58,6 +58,17 @@ const API = {
             }
         }).then(res=>res.json())
     },
+    addUserToTrip:(userObject) =>{
+  
+        console.log(JSON.stringify(userObject))
+        return fetch(`${URL_PREFIX}/api/users/addtrip`, {
+            method:"POST",
+            body:JSON.stringify(userObject),
+            headers:{
+                "Content-Type":"application/json"
+            }
+        })
+    }
     
 
 }

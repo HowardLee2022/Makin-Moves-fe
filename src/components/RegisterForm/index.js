@@ -65,7 +65,7 @@ constructor(props) {
             this.props.methods.setIsLoggedIn(true)
             }
             localStorage.setItem("token",data.token)
-            // location.href = `./mytrips`
+            location.href = `./mytrips`
    
          })
 

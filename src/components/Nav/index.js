@@ -1,9 +1,17 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css"
 
 const Nav = (props) => {
+
+    const navigate = useNavigate();
+
+    const logOut = () => {
+
+        props.logout();
+        navigate('/login')
+    }
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <NavLink className="navbar-brand" to="/">
@@ -33,7 +41,7 @@ const Nav = (props) => {
               </NavLink>
             ) : null}
             {props.isLoggedIn ? (
-              <button className="nav-link" onClick={props.logout}>
+              <button className="nav-link" onClick={logOut}>
                 Logout
               </button>
             ) : null}
