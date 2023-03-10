@@ -3,12 +3,12 @@ import "./style.css"
 
 function Carousel(props) {
   return (
-    <div id="carouselWrapperFade" className="carousel slide carousel-fade" data-ride="carousel" {...props}>
+    <div id="carouselnotbootWrapperFade" className="carousel slide carousel-fade" data-ride="carousel" {...props}>
       {props.children}
-      <div className="carousel-inner">
-        <div className="carousel-item">
+      <div className="carouselnotboot-inner">
+        <div className="carouselnotboot-item">
           <div className="d-block w-100 img1" />
-          <div className="carousel-caption">
+          <div className="carouselnotboot-caption">
             <h1><a href="https://www.visithalongbay.com">Ha Long Bay, VietNam</a></h1>
           </div>
         </div>
