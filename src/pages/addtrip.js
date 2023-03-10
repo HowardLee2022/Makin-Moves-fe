@@ -1,8 +1,9 @@
 import React,{useState} from 'react'
+import { useNavigate} from 'react-router-dom'
 import API from "../utils/API"
 
 function AddTrip(prop) {
-    
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         title: "",
         start: new Date(),
@@ -29,7 +30,7 @@ function AddTrip(prop) {
                     guest:  "",
                     description: "",
                 })
-                // location.href = "./mytrips"    
+                navigate("/mytrips");   
             }
         })  
     }
