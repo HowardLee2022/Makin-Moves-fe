@@ -1,9 +1,14 @@
 import Trip from "../components/trips"
 import API from "../utils/API"
 import React,{useState, useEffect} from 'react'
+import { useNavigate } from "react-router-dom"
 
 
 const MyTrips = (prop) => {
+    const navigate = useNavigate();
+
+ 
+
     const [trips, setTrips] = useState([])
 
     const fetchTrips = () => {
@@ -16,7 +21,7 @@ const MyTrips = (prop) => {
 
     useEffect(()=>{
         fetchTrips()
-     },[])
+     },[prop.userId])
 
 
     return (
