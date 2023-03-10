@@ -8,7 +8,7 @@ const MyTrips = (prop) => {
 
     const fetchTrips = () => {
         API.getUserData(prop.userId).then(data => {
-            setTrips(data.Trips)
+            setTrips(data.trip)
             console.log(data);
         
         })

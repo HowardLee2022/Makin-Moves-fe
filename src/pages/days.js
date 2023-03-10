@@ -14,6 +14,7 @@ const Days = (prop) => {
     let {id} = useParams();
     const [trips, setTrips] = useState([])
     const [days, setDays] = useState([])
+    const [guestEmail,setGuestEmail] = useState();
 
     const [daysData, setDaysData] = useState({
         DayName:"",
@@ -26,6 +27,10 @@ const Days = (prop) => {
           ...daysData,
           [e.target.name]: e.target.value,
         });
+      };
+
+      const handleChangeGuest = (e) => {
+        setGuestEmail(e.target.value);
       };
 
 //fetches trip
@@ -54,6 +59,20 @@ const Days = (prop) => {
     const handleSubmit = (e) =>{
         e.preventDefault();
         API.addDays(daysData).then((response) => {
+            if(response.status == 200) {
+            }
+        })  
+    }
+
+    const handleSubmitGuest = (e) =>{
+        e.preventDefault();
+        const addUser = {
+            email:guestEmail,
+            tripId:id
+        }
+        console.log(guestEmail)
+        console.log(addUser)
+        API.addUserToTrip(addUser).then((response) => {
             if(response.status == 200) {
             }
         })  
@@ -94,6 +113,16 @@ const Days = (prop) => {
                 <label >Activitie</label>
                 <input type="text"  placeholder="DayName" name="activities"  onChange={handleChange} />
             </div>
+            <button >Submit</button>
+        </form>
+
+
+        <form onSubmit={handleSubmitGuest}>
+            <div >
+                <label >Add User</label>
+                <input type="text"  placeholder="email" name="guestEmail" value={guestEmail}  onChange={handleChangeGuest} />
+            </div>
+
             <button >Submit</button>
         </form>
                 </div>

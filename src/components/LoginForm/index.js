@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 
+
 class LoginForm extends Component {
     constructor(props) {
         super(props);
@@ -61,10 +62,11 @@ class LoginForm extends Component {
          console.log(userObj);
          API.login(userObj).then(data => {
             console.log(this.props);
-            this.props.methods.setUserId(data.username)
+            this.props.methods.setUserId(data.user.id)
             this.props.methods.setToken(data.token)
             this.props.methods.setIsLoggedIn(true)
-            location.href = `./mytrips`
+            localStorage.setItem("token",data.token)
+            location.href = `./`
    
          })
 
