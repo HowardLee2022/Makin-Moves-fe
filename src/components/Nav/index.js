@@ -1,22 +1,47 @@
 import { NavLink } from "react-router-dom";
-import React from 'react';
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./style.css"
 
 const Nav = (props) => {
-    
-    return (
+  return (
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <NavLink className="navbar-brand" to="/">
+        <h1 className="display-5" >Makin' Moves</h1>
+      </NavLink>
+      <div className="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul className="navbar-nav">
+          <li className="nav-item active">
+            <NavLink className="nav-link" to="/Register">
+              Register
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/login">
+              Login
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            {props.isLoggedIn ? (
+              <NavLink className="nav-link" to="/mytrips">
+                My Trip
+              </NavLink>
+            ) : null}
+            {props.isLoggedIn ? (
+              <NavLink className="nav-link" to="/mytrips/addtrip">
+                Create A Trip
+              </NavLink>
+            ) : null}
+            {props.isLoggedIn ? (
+              <button className="nav-link" onClick={props.logout}>
+                Logout
+              </button>
+            ) : null}
+          </li>
+        </ul>
+      </div>
+    </nav>
+  );
+};
 
-        <div>
-            <div>
-                <NavLink to="/"><h1>Makin Moves</h1></NavLink>
-                <NavLink to="/Register">Sign  up</NavLink>
-                {props.isLoggedIn?<NavLink to="/mytrips">mytrip</NavLink>:<NavLink to="/login">Login</NavLink>}
-                {props.isLoggedIn?<NavLink to="/mytrips/addtrip">add Trip</NavLink>:null}
-                {props.isLoggedIn?<button onClick={props.logout}>Logout</button>:null}
-            </div>
-        </div>
-
-    )
-
-}
-
-export default Nav
+export default Nav;

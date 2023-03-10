@@ -1,10 +1,13 @@
-#carouselWrapperFade {
-    height: 510px;
+#carouselnotbootWrapperFade {
+    height: 550px;
+    width: 100%;
     font-family: 'Signika', sans-serif;
+    font-weight: 800;
 }
 
-.carousel-caption {
-    transform: translateY(-120%);
+.carouselnotboot-caption {
+    transform: translateY(-250px);
+    text-align: center;
     max-height: 390px;
     line-height: 400px;
 }
@@ -14,21 +17,14 @@ h1 a, h1 a:hover {
     text-decoration: none;
 }
 
-.carousel-caption h1 {
-    font-size: 65px;
-}
-
-.carousel-item div {
-    z-index: 0;
-    height: 490px;
+.carouselnotboot-caption h1 {
+    font-size: 55px;
+    font-weight: 700;
 }
 
 .img1 {
-    background-image: url(./img/HaLongBay.jpg);
-    /* background-size: cover; */
+    background-image: url(./img/HaLongBay.png);
+    background-size: 100%;
     background-position: center;
-}
-
-.sr-only{
-    z-index: 10;
+    height: 550px;
 }

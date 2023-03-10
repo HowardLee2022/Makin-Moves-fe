@@ -1,9 +1,7 @@
 // import React, { Component } from 'react';
 import React,{useState, useEffect} from 'react';
 import {BrowserRouter, Routes,Route} from "react-router-dom";
-import { Container } from 'react-bootstrap';
 import Home from "./pages/Home";
-// import Navbar from "./components/Navbar.Thien"
 import MyTrip from "./pages/mytrip";
 import Days from "./pages/days";
 import Activities from "./pages/activities";
@@ -12,11 +10,7 @@ import Nav from "./components/Nav";
 import Addtrip from"./pages/addtrip";
 import API from "./utils/API";
 import Login from "./pages/Login"
-// class App extends Component{
-//   state = {
-//     isLoggedIn: false,
-//     username: ""
-//   }
+
 function App(){
 
 
@@ -47,8 +41,6 @@ function App(){
   },[])
   
     return (
-      <Container>
-        {/* <Navbar logOut={this.logOut} isLoggedIn={this.state.isLoggedIn} username={this.state.username}/> */}
           <BrowserRouter>
           <Nav isLoggedIn={isLoggedIn} userId={userId} logout={logout}/>
        <Routes>
@@ -61,8 +53,6 @@ function App(){
          <Route path="/Login" element ={<Login setToken={setToken} setUserId={setUserId} setIsLoggedIn={setIsLoggedIn} />}/>
        </Routes>
       </BrowserRouter>
-      </Container>
-
     );
   }
 

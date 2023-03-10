@@ -2,6 +2,8 @@ import React from "react";
 import Carousel from "../components/Carousel";
 import { Container, Row, Col } from 'react-bootstrap';
 
+
+
 function Home() {
     return (
         <>
