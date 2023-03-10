@@ -1,6 +1,6 @@
 // import React, { Component } from 'react';
 import React,{useState, useEffect} from 'react';
-import {BrowserRouter, Routes,Route} from "react-router-dom";
+import {BrowserRouter, Routes,Route,useNavigate} from "react-router-dom";
 import { Container } from 'react-bootstrap';
 import Home from "./pages/Home";
 // import Navbar from "./components/Navbar.Thien"
@@ -12,6 +12,7 @@ import Nav from "./components/Nav";
 import Addtrip from"./pages/addtrip";
 import API from "./utils/API";
 import Login from "./pages/Login"
+
 // class App extends Component{
 //   state = {
 //     isLoggedIn: false,
@@ -30,6 +31,7 @@ function App(){
     setIsLoggedIn(false);
     localStorage.removeItem("token")
   }
+
   useEffect(()=>{
     const savedToken = localStorage.getItem("token");
     console.log(savedToken)
@@ -54,7 +56,7 @@ function App(){
        <Routes>
          <Route path="/" element={<Home/>}/>
          <Route path="/mytrips/addtrip" element={<Addtrip userId={userId} token={token}/>}/>
-         <Route path="/mytrips" element={<MyTrip userId={userId} />}/>
+         <Route path="/mytrips" element={<MyTrip userId={userId} isLoggedIn = {isLoggedIn}/>}/>
          <Route path="/mytrips/:id" element = {<Days/>}/>
          <Route path="/mytrips/days/:id" element ={<Activities/>}/>
          <Route path="/Register" element ={<Register setToken={setToken} setUserId={setUserId} setIsLoggedIn={setIsLoggedIn} />}/>
