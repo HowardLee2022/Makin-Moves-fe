@@ -47,7 +47,7 @@ const Login = (props) => {
 
 
     return (
-        <form autoComplete="off">
+        <form  autoComplete="off" onSubmit={handleFormSubmit}>
             <div className="form-group">
                 <label htmlFor="email">Email</label>
                 <input className="form-control"
@@ -62,7 +62,7 @@ const Login = (props) => {
             <div className="form-group">
                 <label htmlFor="password">Password</label>
                 <input className="form-control"
-                    value={loginData.Password}
+                    value={loginData.password}
                     name="password"
                     onChange={handleChange}
                     type="password"
@@ -70,7 +70,7 @@ const Login = (props) => {
                 />
                 {/* <p style={{ color: "red", fontSize: "20px" }}>{this.state.errorPassword}</p> */}
             </div>
-            <button type="button" onClick={handleFormSubmit}
+            <button type="submit" 
                 className="btn btn-primary w-100"
             > Log In
             </button>

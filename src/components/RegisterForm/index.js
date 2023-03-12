@@ -143,7 +143,7 @@ const signUp = (props) => {
    
    
       return (
-         <form autoComplete="off" className="p-4">
+         <form autoComplete="off" className="p-4" onSubmit={handleFormSubmit}>
             <div className="form-group">
                <label htmlFor="username">Username</label>
                <input className="form-control"
@@ -186,7 +186,7 @@ const signUp = (props) => {
                />
             </div>
             <p className="error">{error}</p>
-            <button className="btn btn-primary" onClick={handleFormSubmit}>
+            <button type="submit" className="btn btn-primary">
                Sign Up
             </button>
          </form>
