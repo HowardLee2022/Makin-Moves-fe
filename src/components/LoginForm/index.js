@@ -1,136 +1,81 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import API from "../../utils/API";
 
 
-class LoginForm extends Component {
-    constructor(props) {
-        super(props);
-     }
-    state = {
-        username: "",
-        email: "",
-        password: "",
-        errorUsername: "",
-        errorPassword: ""
-    }
+const Login = (props) => {
 
-    handleInputChange = event => {
-        const { name, value } = event.target;
-        this.setState({
-            [name]: value
+    const navigate =useNavigate();
+
+    const [loginData, setLoginData] = useState({
+        email: "",
+        password: ""
+
+    });
+
+    const handleChange = (e) => {
+        setLoginData({
+            ...loginData,
+            [e.target.name]: e.target.value,
         });
     };
 
-    handleFormSubmit = event => {
-        event.preventDefault();
-        if (this.state.username && this.state.email && this.state.password) {
-            // fetch("/auth/login", {
-            //     method: "POST",
-            //     credentials: "include",
-            //     mode: "cors",
-            //     body: JSON.stringify({
-            //         username: this.state.username,
-            //         email: this.state.email,
-            //         password: this.state.password
-            //     }),
-            //     headers: new Headers({
-            //         "Content-Type": "application/json"
-            //     })
-            // })
-            //     .then(response => {
-            //         if (!response.ok) {
-            //             throw new Error(response.statusText);
-            //         }
-            //         this.props.login().then(() => {
-            //             global.$("#loginModal").modal("hide");
-            //             this.props.history.push('/profile')
-            //         })
 
-            //     })
-            //     .catch(err => {
-            //         this.setState({
-            //             errorUsername: "",
-            //             errorEmail: "",
-            //             errorPassword: "Incorrect Username and Email or Password. Please try again."
-            //         })
-            //     });else {
-         const userObj = {
-            username:this.state.username,
-            email:this.state.email,
-            password:this.state.password
-         }
-         console.log(userObj);
-         API.login(userObj).then(data => {
-            console.log(this.props);
-            this.props.methods.setUserId(data.user.id)
-            this.props.methods.setToken(data.token)
-            this.props.methods.setIsLoggedIn(true)
-            localStorage.setItem("token",data.token)
-            location.href = `./`
-   
-         })
+    const handleFormSubmit = (e) => {
+        e.preventDefault();
+        if (loginData.email && loginData.password) {
+            const userObj = {
+                email: loginData.email,
+                password: loginData.password
+            }
+            console.log(userObj);
+            API.login(userObj).then(data => {
+                console.log(props);
+                props.methods.setUserId(data.user.id)
+                props.methods.setToken(data.token)
+                props.methods.setIsLoggedIn(true)
+                localStorage.setItem("token", data.token)
+                navigate('/mytrips')
 
-            this.setState({
-                username: "",
+            })
+            setLoginData({
                 email: "",
                 password: "",
-                errorUsername: "",
-                errorPassword: ""
             });
-        } else {
-            this.setState({
-                errorUsername: "*Please fill out your username",
-                errorEmail: "*Please fill out your email address",
-                errorPassword: "*Please fill out your password"
-            })
         }
-
     };
 
-    render() {
 
-        return (
-            <form autoComplete="off">
-                <div className="form-group">
-                    <label htmlFor="username">Username</label>
-                    <input className="form-control"
-                        value={this.state.username}
-                        name="username"
-                        onChange={this.handleInputChange}
-                        type="text"
-                        placeholder="Username"
-                    />
-                    <p style={{ color: "red", fontSize: "20px" }}>{this.state.errorUsername}</p>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="email">Email</label>
-                    <input className="form-control"
-                        value={this.state.email}
-                        name="email"
-                        onChange={this.handleInputChange}
-                        type="text"
-                        placeholder="Email"
-                    />
-                    <p style={{ color: "red", fontSize: "20px" }}>{this.state.errorEmail}</p>
-                </div>
-                <div className="form-group">
-                    <label htmlFor="password">Password</label>
-                    <input className="form-control"
-                        value={this.state.password}
-                        name="password"
-                        onChange={this.handleInputChange}
-                        type="password"
-                        placeholder="Password"
-                    />
-                    <p style={{ color: "red", fontSize: "20px" }}>{this.state.errorPassword}</p>
-                </div>
-                <button type="button" onClick={this.handleFormSubmit}
-                    className="btn btn-primary w-100"
-                > Log In
-                </button>
-            </form>
-        )
-    }
-};
+    return (
+        <form autoComplete="off">
+            <div className="form-group">
+                <label htmlFor="email">Email</label>
+                <input className="form-control"
+                    value={loginData.email}
+                    name="email"
+                    onChange={handleChange}
+                    type="text"
+                    placeholder="Email"
+                />
+                {/* <p style={{ color: "red", fontSize: "20px" }}>{this.state.errorEmail}</p> */}
+            </div>
+            <div className="form-group">
+                <label htmlFor="password">Password</label>
+                <input className="form-control"
+                    value={loginData.Password}
+                    name="password"
+                    onChange={handleChange}
+                    type="password"
+                    placeholder="Password"
+                />
+                {/* <p style={{ color: "red", fontSize: "20px" }}>{this.state.errorPassword}</p> */}
+            </div>
+            <button type="button" onClick={handleFormSubmit}
+                className="btn btn-primary w-100"
+            > Log In
+            </button>
+        </form>
+    )
+}
 
-export default LoginForm;
+export default Login;
