@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/makin-moves/static/css/main.1417235d.css",
+    "main.js": "/makin-moves/static/js/main.836eab03.js",
+    "static/media/HaLongBay.png": "/makin-moves/static/media/HaLongBay.ce975b41163a8f57c8ee.png",
+    "index.html": "/makin-moves/index.html",
+    "main.1417235d.css.map": "/makin-moves/static/css/main.1417235d.css.map",
+    "main.836eab03.js.map": "/makin-moves/static/js/main.836eab03.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1417235d.css",
+    "static/js/main.836eab03.js"
+  ]
+}
