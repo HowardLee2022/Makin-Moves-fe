@@ -1,0 +1,30 @@
+#carouselnotbootWrapperFade {
+    height: 550px;
+    width: 100%;
+    font-family: 'Signika', sans-serif;
+    font-weight: 800;
+}
+
+.carouselnotboot-caption {
+    transform: translateY(-250px);
+    text-align: center;
+    max-height: 390px;
+    line-height: 400px;
+}
+
+h1 a, h1 a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.carouselnotboot-caption h1 {
+    font-size: 55px;
+    font-weight: 700;
+}
+
+.img1 {
+    background-image: url(./img/HaLongBay.png);
+    background-size: 100%;
+    background-position: center;
+    height: 550px;
+}
