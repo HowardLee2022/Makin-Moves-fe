@@ -1,7 +1,7 @@
 
 import API from "../utils/API"
 import React,{useState, useEffect} from 'react'
-import {useParams } from 'react-router-dom';
+import {useParams, Link } from 'react-router-dom';
 
 
 
@@ -18,7 +18,6 @@ const Days = (prop) => {
 
     const [daysData, setDaysData] = useState({
         DayName:"",
-        activities:"",
         TripId:id
     });
 
@@ -45,14 +44,6 @@ const Days = (prop) => {
         API.getDaysData(id).then(data => {
             setDays(data)
         })
-    }
-
-
-    let hello = {
-        DayName:"4",
-        activities:"go snowboarding",
-        TripId:id
-
     }
 
 
@@ -96,7 +87,7 @@ const Days = (prop) => {
                return(
                 <div>
                 <p>{day.DayName}</p>
-                <p>{day.activities}</p>
+                <Link to={{pathname : `/mytrips/day/${day.id}`}}> <button >View Day</button></Link> 
                 </div>
 
                )
@@ -109,10 +100,10 @@ const Days = (prop) => {
                 <label >Add Day</label>
                 <input type="text"  placeholder="DayName" name="DayName"  onChange={handleChange} />
             </div>
-            <div >
+            {/* <div >
                 <label >Activitie</label>
                 <input type="text"  placeholder="DayName" name="activities"  onChange={handleChange} />
-            </div>
+            </div> */}
             <button >Submit</button>
         </form>
 
