@@ -68,6 +68,10 @@ const API = {
                 "Content-Type":"application/json"
             }
         })
+    },
+
+    getSingleDay:id=>{
+        return fetch(`${URL_PREFIX}/api/day/${id}`).then(res=>res.json())
     }
     
 

@@ -1,7 +1,7 @@
 
 import API from "../utils/API"
 import React,{useState, useEffect} from 'react'
-import {useParams } from 'react-router-dom';
+import {useParams, Link } from 'react-router-dom';
 
 
 
@@ -97,6 +97,7 @@ const Days = (prop) => {
                 <div>
                 <p>{day.DayName}</p>
                 <p>{day.activities}</p>
+                <Link to={{pathname : `/mytrips/day/${day.id}`}}> <button >View Day</button></Link> 
                 </div>
 
                )
