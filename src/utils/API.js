@@ -1,5 +1,11 @@
 
-const URL_PREFIX="http://localhost:3001"
+// const URL_PREFIX="http://localhost:3001"
+
+const URL_PREFIX="https://makin-moves-be.herokuapp.com"
+
+
+
+
 
 const API = {
     getUserData:id=>{
@@ -26,10 +32,11 @@ const API = {
             body:JSON.stringify(daysData),
             headers:{
                 "Content-Type":"application/json",
-                "authorization":`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ikhvd2FyZGxlZSIsImlkIjoxLCJpYXQiOjE2NzgzODI4ODMsImV4cCI6MTY3ODM5MzY4M30.9Cxq8_1Ru38li1kkk8A4-Zkv7nqL_FAoQ-2e-aqQuiE`
             }
         })
     },
+
+
     getDaysData:id=>{
         return fetch(`${URL_PREFIX}/api/day/day/${id}`).then(res=>res.json())
     },
