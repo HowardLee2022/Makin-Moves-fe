@@ -72,6 +72,17 @@ const API = {
 
     getSingleDay:id=>{
         return fetch(`${URL_PREFIX}/api/day/${id}`).then(res=>res.json())
+    },
+
+    addActivity:(userObject)=>{
+        return fetch(`${URL_PREFIX}/api/activitie`,{
+            method:"POST",
+            body:JSON.stringify(userObject),
+            headers:{
+                "Content-Type":"application/json"
+            }
+        }).then(res=>res.json())
+
     }
     
 
