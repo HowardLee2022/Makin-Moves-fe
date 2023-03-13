@@ -186,7 +186,7 @@ const signUp = (props) => {
                />
             </div>
             <p className="error">{error}</p>
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-outline-info">
                Sign Up
             </button>
          </form>

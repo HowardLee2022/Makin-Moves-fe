@@ -49,7 +49,7 @@ const Login = (props) => {
     return (
         <form  autoComplete="off" onSubmit={handleFormSubmit}>
             <div className="form-group">
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email"><b>Email</b></label>
                 <input className="form-control"
                     value={loginData.email}
                     name="email"
@@ -60,7 +60,7 @@ const Login = (props) => {
                 {/* <p style={{ color: "red", fontSize: "20px" }}>{this.state.errorEmail}</p> */}
             </div>
             <div className="form-group">
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password"><b>Password</b></label>
                 <input className="form-control"
                     value={loginData.password}
                     name="password"
@@ -70,9 +70,9 @@ const Login = (props) => {
                 />
                 {/* <p style={{ color: "red", fontSize: "20px" }}>{this.state.errorPassword}</p> */}
             </div>
+            <p className="error"></p>
             <button type="submit" 
-                className="btn btn-primary w-100"
-            > Log In
+                className="btn btn-outline-info"> Log In
             </button>
         </form>
     )
