@@ -15,6 +15,16 @@ const API = {
             }
         })
     },
+    editTrip:(formData,id,token) =>{
+        return fetch(`${URL_PREFIX}/api/trips/${id}`,{
+            method:"PUT",
+            body:JSON.stringify(formData),
+            headers:{
+                "Content-Type":"application/json",
+                "authorization":`Bearer ${token}`
+            }
+        })
+    },
 
     getTripData: id =>{
         return fetch(`${URL_PREFIX}/api/trips/${id}`).then(res=>res.json())

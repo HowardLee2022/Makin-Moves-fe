@@ -70,7 +70,6 @@ const Days = (prop) => {
             email:guestEmail,
             tripId:id
         }
-        console.log(guestEmail)
         console.log(addUser)
         API.addUserToTrip(addUser).then((response) => {
             if(response.status == 200) {
