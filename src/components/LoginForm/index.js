@@ -92,7 +92,7 @@ class LoginForm extends Component {
         return (
             <form autoComplete="off">
                 <div className="form-group">
-                    <label htmlFor="username">Username</label>
+                    <label htmlFor="username"><b>Username</b></label>
                     <input className="form-control"
                         value={this.state.username}
                         name="username"
@@ -103,7 +103,7 @@ class LoginForm extends Component {
                     <p style={{ color: "red", fontSize: "20px" }}>{this.state.errorUsername}</p>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor="email"><b>Email</b></label>
                     <input className="form-control"
                         value={this.state.email}
                         name="email"
@@ -114,7 +114,7 @@ class LoginForm extends Component {
                     <p style={{ color: "red", fontSize: "20px" }}>{this.state.errorEmail}</p>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password"><b>Password</b></label>
                     <input className="form-control"
                         value={this.state.password}
                         name="password"
@@ -125,7 +125,7 @@ class LoginForm extends Component {
                     <p style={{ color: "red", fontSize: "20px" }}>{this.state.errorPassword}</p>
                 </div>
                 <button type="button" onClick={this.handleFormSubmit}
-                    className="btn btn-primary w-100"
+                    className="btn btn-outline-info"
                 > Log In
                 </button>
             </form>

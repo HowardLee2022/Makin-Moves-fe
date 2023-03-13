@@ -86,7 +86,7 @@ constructor(props) {
       return (
          <form ref={this.form} autoComplete="off" className="p-4">
             <div className="form-group">
-               <label htmlFor="username">Username</label>
+               <label htmlFor="username"><b>Username</b></label>
                <input className="form-control"
                   value={this.state.username}
                   onChange={this.handleInputChange}
@@ -97,7 +97,7 @@ constructor(props) {
                <p className="error">{this.state.errorUsername}</p>
             </div>
             <div className="form-group">
-               <label htmlFor="email">Email</label>
+               <label htmlFor="email"><b>Email</b></label>
                <input className="form-control"
                   value={this.state.email}
                   onChange={this.handleInputChange}
@@ -108,7 +108,7 @@ constructor(props) {
                <p className="error">{this.state.errorEmail}</p>
             </div>
             <div className="form-group">
-               <label htmlFor="password">Password (at least 8 characters long)</label>
+               <label htmlFor="password"><b>Password (at least 8 characters long)</b></label>
                <input className="form-control"
                   value={this.state.password}
                   onChange={this.handleInputChange}
@@ -119,7 +119,7 @@ constructor(props) {
                <p className="error">{this.state.errorPassword}</p>
             </div>
             <div className="form-group">
-               <label htmlFor="passwordConfirm">Confirm Password</label>
+               <label htmlFor="passwordConfirm"><b>Confirm Password</b></label>
                <input className="form-control"
                   value={this.state.passwordConfirm}
                   onChange={this.handleInputChange}
@@ -130,7 +130,7 @@ constructor(props) {
                <p className="error">{this.state.errorConfirm}</p>
             </div>
             <p className="error">{this.state.errorRequest}</p>
-            <button className="btn btn-primary" onClick={this.handleFormSubmit}>
+            <button className="btn btn-outline-info" onClick={this.handleFormSubmit}>
                Sign Up
             </button>
          </form>

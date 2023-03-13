@@ -15,7 +15,7 @@ const Nav = (props) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <NavLink className="navbar-brand" to="/">
-        <h1 className="display-5" >Makin' Moves</h1>
+        <h1 className="display-5">Makin' Moves</h1>
       </NavLink>
       <div className="collapse navbar-collapse" id="navbarNavDropdown">
         <ul className="navbar-nav">
