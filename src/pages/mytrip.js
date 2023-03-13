@@ -1,38 +1,38 @@
 import Trip from "../components/trips"
 import API from "../utils/API"
-import React,{useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom"
 
 
 const MyTrips = (prop) => {
     const navigate = useNavigate();
 
- 
+
 
     const [trips, setTrips] = useState([])
 
     const fetchTrips = () => {
         API.getUserData(prop.userId).then(data => {
             setTrips(data.trip)
-            console.log(data);
-        
+
         })
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         fetchTrips()
-     },[prop.userId])
+    }, [prop.userId])
 
 
     return (
         <div>
-            {trips.map((trip,i) => {
-                return(
-                <Trip data={trip} key={i}/>
+
+            {trips.map((trip, i) => {
+                return (
+                    <Trip data={trip} token={prop.token} id={prop.userId} set={fetchTrips} />
                 );
-             })}
+            })}
         </div>
-    
+
     )
 }
 

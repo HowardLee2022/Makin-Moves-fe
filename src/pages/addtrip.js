@@ -8,7 +8,6 @@ function AddTrip(prop) {
         title: "",
         start: new Date(),
         end:  new Date(),
-        guest:  "",
         description: "",
       });
 
@@ -27,7 +26,6 @@ function AddTrip(prop) {
                     title: "",
                     start: "",
                     end:  "",
-                    guest:  "",
                     description: "",
                 })
                 navigate("/mytrips");   
@@ -41,10 +39,6 @@ function AddTrip(prop) {
             <div >
                 <label >Title</label>
                 <input type="text"  placeholder="title" name="title" value={formData.title} onChange={handleChange} />
-            </div>
-            <div >
-                <label >guest</label>
-                <input type="text" placeholder="guest" name="guest" onChange={handleChange}/>
             </div>
             <div >
                 <label >start Date</label>
