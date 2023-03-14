@@ -105,7 +105,7 @@ const Trips = (prop) => {
                                     return (
                                         <li class="list-group-item d-flex justify-content-between lh-sm">
                                             <div>
-                                                <h6 class="my-0">{name.username}</h6>
+                                                <h6 class="my-0">{name.email}</h6>
                                             </div>
                                             <span class="text-muted">button to remove?</span>
                                         </li>
@@ -130,7 +130,7 @@ const Trips = (prop) => {
                             </div>
                             <div class="col-md-5 col-lg-8 justify-content-end">
 
-                                <Link to={{ pathname: `/mytrips/${prop.data.id}`, prop: { tripData } }}>  <button className="w-30 btn btn-primary btn-lg" >iternary</button></Link>
+                                <Link to={{ pathname: `/mytrips/${prop.data.id}`, prop: {guest} }}>  <button className="w-30 btn btn-primary btn-lg" >iternary</button></Link>
                                 <button className="w-30 btn btn-primary btn-lg">chat</button>
                             </div>
                         </div>
