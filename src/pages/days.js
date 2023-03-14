@@ -11,7 +11,7 @@ const Days = (prop) => {
   const [days, setDays] = useState([]);
   const [guestEmail, setGuestEmail] = useState();
   const [isShow, invokeModal] = useState(false);
-    const [guest, setGuest]= useState([]);
+  const [guest, setGuest] = useState([]);
 
   const initModal = () => {
     return invokeModal(!isShow);
@@ -37,7 +37,7 @@ const Days = (prop) => {
   const fetchTrips = () => {
     API.getTripData(id).then((data) => {
       setTrips(data);
-      setGuest(data.user)
+      setGuest(data.user);
     });
   };
 
@@ -64,8 +64,8 @@ const Days = (prop) => {
     console.log(addUser);
     API.addUserToTrip(addUser).then((response) => {
       if (response.status == 200) {
-        initModal()
-        setGuest(oldGuest => [...oldGuest, {username:guestEmail}]);
+        initModal();
+        setGuest((oldGuest) => [...oldGuest, { email: guestEmail }]);
       }
     });
   };
@@ -76,13 +76,12 @@ const Days = (prop) => {
   }, []);
 
   return (
+    
     <div class="row">
       <div class="col-12 col-lg-2 m-3 bg-light border">
         <h4 class="d-flex justify-content-between align-items-center mb-3">
           <span class="text-muted">Attendees</span>
-          <span class="badge bg-secondary rounded-pill">
-            {guest?.length}
-          </span>
+          <span class="badge bg-secondary rounded-pill">{guest?.length}</span>
         </h4>
         <ul class="list-group mb-3">
           {guest?.map((name) => {
@@ -91,46 +90,18 @@ const Days = (prop) => {
                 <div>
                   <h6 class="my-0">{name.email}</h6>
                 </div>
-                <span class="text-muted">button to remove?</span>
               </li>
             );
           })}
         </ul>
-        <button className="w-30 btn btn-primary btn-sm" onClick={initModal}>Add User Button</button>
+        {trips.owner == prop.userId ? (
+                                         <button className="w-30 btn btn-primary btn-sm" onClick={initModal}>
+                                         Add User Button
+                                       </button>
+                                ) : null}
+        
 
-        <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label>Add Day</label>
-            <input
-              className="form-control"
-              type="text"
-              placeholder="DayName"
-              name="DayName"
-              onChange={handleChange}
-            />
-          </div>
-          {/* <div >
-                <label >Activitie</label>
-                <input type="text"  placeholder="DayName" name="activities"  onChange={handleChange} />
-            </div> */}
-          <button className="w-30 btn btn-primary btn-sm">Submit</button>
-        </form>
 
-        {/* <form onSubmit={handleSubmitGuest}>
-          <div className="form-group">
-            <label>Add User</label>
-            <input
-              className="form-control"
-              type="text"
-              placeholder="email"
-              name="guestEmail"
-              value={guestEmail}
-              onChange={handleChangeGuest}
-            />
-          </div>
-
-          <button className="w-30 btn btn-primary btn-sm ">Submit</button>
-        </form> */}
       </div>
 
       <div class="col-12 col-lg-9 m-3 border">

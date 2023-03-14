@@ -8,6 +8,7 @@ const singleDay = (prop) => {
 
     let{id} = useParams();
     
+    const [render, setRender] = useState(prop.data.Activities)
 
     const [activity, setActivity] = useState();
     
@@ -24,13 +25,14 @@ const singleDay = (prop) => {
         }
 
         API.addActivity(addActivity).then((response) => {
-            if(response.status == 200) {
-            }
+            setRender((oldRender)=> [...oldRender, { name: activity }])
         })  
     }
 
 
     return (
+
+       
         <div class="row">
             <div class="col-12 col-lg-2 m-3 bg-light border">
             <form onSubmit={handleSubmit}>
@@ -49,7 +51,7 @@ const singleDay = (prop) => {
                 <div class="bg-light p-2 rounded">
                     <h1 class="center-align">{prop.data.DayName}</h1>
                     <ul class="list-group mb-3">
-                     {prop.data.Activities.map((activity,i) => {
+                     {render?.map((activity,i) => {
                         return(
                       <li class="list-group-item d-flex justify-content-between lh-sm"><h3>{activity.name}</h3></li>
                          );

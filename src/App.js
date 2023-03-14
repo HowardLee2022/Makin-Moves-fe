@@ -49,7 +49,7 @@ function App(){
          <Route path="/" element={<Home/>}/>
          <Route path="/mytrips/addtrip" element={<Addtrip userId={userId} token={token}/>}/>
          <Route path="/mytrips" element={<MyTrip userId={userId} token={token} isLoggedIn = {isLoggedIn}/>}/>
-         <Route path="/mytrips/:id" element = {<Days/>}/>
+         <Route path="/mytrips/:id" element = {<Days userId={userId} token={token} isLoggedIn = {isLoggedIn}/>}/>
          <Route path="/mytrips/days/:id" element ={<Activities/>}/>
          <Route path="/Register" element ={<Register setToken={setToken} setUserId={setUserId} setIsLoggedIn={setIsLoggedIn} />}/>
          <Route path="/Login" element ={<Login setToken={setToken} setUserId={setUserId} setIsLoggedIn={setIsLoggedIn} />}/>
