@@ -31,22 +31,34 @@ const singleDay = (prop) => {
 
 
     return (
-        <div>
-        <h1>Day: {prop.data.DayName}</h1>
+        <div class="row">
+            <div class="col-12 col-lg-2 m-3 bg-light border">
+            <form onSubmit={handleSubmit}>
+                         <div className="form-group" >
+                        <label >Add Activities</label>
+                     <input className="form-control"
+                      type="text"  placeholder="Activity" name="Activitie"  onChange={handleChange} />
+                        </div>
+                         <button className="w-30 btn btn-primary btn-lg" >Submit</button>
+                     </form>
 
-        {prop.data.Activities.map((activity,i) => {
-            return(
-                <p>{activity.name}</p>
-            );
-         })}
-        <form onSubmit={handleSubmit}>
-            <div >
-                <label >Add Activities</label>
-                <input type="text"  placeholder="Activitie" name="Activitie"  onChange={handleChange} />
             </div>
-            <button >Submit</button>
-        </form>
+
+
+            <div class="col-12 col-lg-9 m-3 border">
+                <div class="bg-light p-2 rounded">
+                    <h1 class="center-align">{prop.data.DayName}</h1>
+                    <ul class="list-group mb-3">
+                     {prop.data.Activities.map((activity,i) => {
+                        return(
+                      <li class="list-group-item d-flex justify-content-between lh-sm"><h3>{activity.name}</h3></li>
+                         );
+                     })}
+                     </ul>
+                </div>
         
+            </div>
+
      </div>
     )
 
