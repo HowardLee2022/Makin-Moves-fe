@@ -2,8 +2,8 @@ import API from "../utils/API";
 import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate} from "react-router-dom";
 import { Modal, Button } from "react-bootstrap";
+const dayjs = require('dayjs')
 
-// const postId = window.location.href.split('/').pop();
 
 const Days = (prop) => {
     let { id } = useParams();
@@ -113,7 +113,7 @@ const Days = (prop) => {
                 </ul>
                 {trips.owner == prop.userId ? (
                     <button className="w-30 btn btn-primary btn-sm" onClick={initModal}>
-                        Add User Button
+                        Add Guest
                     </button>
                 ) : null}
 
@@ -127,7 +127,7 @@ const Days = (prop) => {
                         <h1 class="text-center">{trips.title}</h1>
                         <h1 class="text-center">
                             {" "}
-                            {trips.start} --- {trips.end}
+                            {dayjs(trips.start).format('MMMM D, YYYY')} to {dayjs(trips.end).format('MMMM D, YYYY')}
                         </h1>
                         <h1 class="text-center">{trips.description}</h1>
                         <h1>{trips.guest}</h1>
@@ -155,12 +155,13 @@ const Days = (prop) => {
 
             <Modal show={isShow}>
                 <Modal.Header closeButton onClick={initModal}>
-                    <Modal.Title>React Modal Popover Example</Modal.Title>
+                    <Modal.Title><b>Add Guest</b></Modal.Title>
                 </Modal.Header>
 
                 <form onSubmit={handleSubmitGuest}>
                     <div className="form-group">
-                        <label>Add User</label>
+                        <br></br>
+                        <label>Guest's Email</label>
                         <input
                             className="form-control"
                             type="text"
@@ -169,6 +170,7 @@ const Days = (prop) => {
                             value={guestEmail}
                             onChange={handleChangeGuest}
                         />
+                        <br></br>
                     </div>
                 </form>
 

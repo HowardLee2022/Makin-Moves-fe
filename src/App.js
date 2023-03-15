@@ -16,7 +16,7 @@ import io from "socket.io-client";
 import Homechat from "./pages/homechat";
 import Chat from "./pages/chat";
 
-const socket = io.connect("http://localhost:4000"); //Chat server
+const socket = io.connect("https://makin-moves-be.herokuapp.com/"); //Chat server
 
 function App() {
   const [token, setToken] = useState("");
@@ -52,7 +52,7 @@ function App() {
     <Router>
       <Nav isLoggedIn={isLoggedIn} userId={userId} logout={logout} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/Makin-Moves-fe" element={<Home />} />
         <Route
           path="/mytrips/addtrip"
           element={<Addtrip userId={userId} token={token} />}

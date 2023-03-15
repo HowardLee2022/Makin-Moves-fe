@@ -4,6 +4,7 @@ import API from "../../utils/API";
 import { Modal, Button } from "react-bootstrap";
 import StyledButton from "./Button.styled";
 import styled from "styled-components";
+const dayjs = require('dayjs')
 
 const Trips = (prop) => {
   const data = { prop };
@@ -33,12 +34,12 @@ const Trips = (prop) => {
     API.getTripData(prop.data.id).then((data) => {
       setGuest(data.user);
       settripData({
-        title: data.title,
-        start: data.start,
-        end: data.end,
-        cost: data.cost,
+        title: formData.title,
+        start: formData.start,
+        end: formData.end,
+        cost: formData.cost,
         owner: data.owner,
-        description: data.description,
+        description: formData.description,
       });
     });
   };
@@ -121,9 +122,9 @@ const Trips = (prop) => {
                   }}
                 >
                   {" "}
-                  <StyledButton className="">Itinerary</StyledButton>
+                  <StyledButton className="">iternerary</StyledButton>
                 </Link>
-                <StyledButton className="">Chat</StyledButton>
+                <Link to={{ pathname: `/homechat` }}><StyledButton className="">chat</StyledButton>  </Link>
               </div>
             </div>
           </div>
@@ -132,7 +133,7 @@ const Trips = (prop) => {
 
       <Modal show={isShow}>
         <Modal.Header closeButton onClick={initModal}>
-          <Modal.Title>React Modal Popover Example</Modal.Title>
+          <Modal.Title>Edit Trip</Modal.Title>
         </Modal.Header>
 
         <Form>
