@@ -113,7 +113,7 @@ const Days = (prop) => {
                 </ul>
                 {trips.owner == prop.userId ? (
                     <button className="w-30 btn btn-primary btn-sm" onClick={initModal}>
-                        Add User Button
+                        Add Guest
                     </button>
                 ) : null}
 
@@ -155,12 +155,13 @@ const Days = (prop) => {
 
             <Modal show={isShow}>
                 <Modal.Header closeButton onClick={initModal}>
-                    <Modal.Title>React Modal Popover Example</Modal.Title>
+                    <Modal.Title><b>Add Guest</b></Modal.Title>
                 </Modal.Header>
 
                 <form onSubmit={handleSubmitGuest}>
                     <div className="form-group">
-                        <label>Add User</label>
+                        <br></br>
+                        <label>Guest's Email</label>
                         <input
                             className="form-control"
                             type="text"
@@ -169,6 +170,7 @@ const Days = (prop) => {
                             value={guestEmail}
                             onChange={handleChangeGuest}
                         />
+                        <br></br>
                     </div>
                 </form>
 
