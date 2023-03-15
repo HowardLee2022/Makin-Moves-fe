@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import API from "../../utils/API";
-
+import StyledButton from "../trips/Button.styled";
 
 const Login = (props) => {
 
@@ -71,9 +71,8 @@ const Login = (props) => {
                 {/* <p style={{ color: "red", fontSize: "20px" }}>{this.state.errorPassword}</p> */}
             </div>
             <p className="error"></p>
-            <button type="submit" 
-                className="btn btn-outline-info"> Log In
-            </button>
+            <StyledButton type="submit" > Log In
+            </StyledButton>
         </form>
     )
 }

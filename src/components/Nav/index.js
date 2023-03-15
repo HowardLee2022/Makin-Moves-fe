@@ -1,55 +1,79 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./style.css"
+import "./style.css";
+import styled from "styled-components";
+
 
 const Nav = (props) => {
-
-    const navigate = useNavigate();
-
-    const logOut = () => {
-
-        props.logout();
-        navigate('/login')
-    }
+  const navigate = useNavigate();
+  console.log("is logged in", props.isLoggedIn);
+  const logOut = () => {
+    props.logout();
+    navigate("/login");
+  };
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav>
       <NavLink className="navbar-brand" to="/">
         <h1 className="display-5">Makin' Moves</h1>
       </NavLink>
-      <div className="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul className="navbar-nav">
-          <li className="nav-item active">
-            <NavLink className="nav-link" to="/Register">
-              Register
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/login">
-              Login
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            {props.isLoggedIn ? (
+
+        {!props.isLoggedIn && (
+          
+      <Ul style={{ listStyleType: "none" }}>
+            <li className="nav-item active">
+              <NavLink className="nav-link" to="/Register">
+                Register
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/login">
+                Login
+              </NavLink>
+            </li>
+          </Ul>
+        )}
+
+        {props.isLoggedIn && (
+          <Ul>
+            <li>
               <NavLink className="nav-link" to="/mytrips">
                 My Trip
               </NavLink>
-            ) : null}
-            {props.isLoggedIn ? (
+            </li>
+            <li>
               <NavLink className="nav-link" to="/mytrips/addtrip">
                 Create A Trip
               </NavLink>
-            ) : null}
-            {props.isLoggedIn ? (
+            </li>
+            <li>
               <button className="nav-link" onClick={logOut}>
                 Logout
               </button>
-            ) : null}
-          </li>
-        </ul>
-      </div>
+            </li>
+          </Ul>
+        )}
+      
     </nav>
   );
 };
+
+const Ul = styled.ul`
+  display: flex;
+  text-align: end;
+ 
+
+  button {
+    padding: 0px 5px;
+  }
+
+  li {
+    padding: 5px 10px;
+    display: flex;
+  }
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
+`;
 
 export default Nav;
