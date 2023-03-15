@@ -175,7 +175,7 @@ const Days = (prop) => {
                 </form>
 
                 <Button variant="primary" onClick={handleSubmitGuest}>
-                    submit
+                    Submit
                 </Button>
             </Modal>
         </div>
