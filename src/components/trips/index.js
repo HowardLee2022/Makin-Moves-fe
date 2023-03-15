@@ -49,10 +49,6 @@ const Trips = (prop) => {
         })
     }
 
-
-
-
-
     const handleChange = (e) => {
         setFormData({
             ...formData,
@@ -128,7 +124,7 @@ const Trips = (prop) => {
                                     <button className="w-30 btn btn-primary btn-lg" onClick={initModal}>edit trip</button>
                                 ) : null}
                             </div>
-                            <div class="col-md-5 col-lg-8 justify-content-end">
+                            <div class="col-md-5 col-lg-8 d-flex justify-content-end">
 
                                 <Link to={{ pathname: `/mytrips/${prop.data.id}`, prop: {guest} }}>  <button className="w-30 btn btn-primary btn-lg" >iternary</button></Link>
                                 <button className="w-30 btn btn-primary btn-lg">chat</button>

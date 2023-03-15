@@ -20,7 +20,7 @@ const MyTrips = (prop) => {
 
     useEffect(() => {
         fetchTrips()
-    }, [prop.userId])
+    }, [prop.userId,trips])
 
 
     return (
