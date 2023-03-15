@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import "./style.css"
 import API from "../../utils/API";
 import { useNavigate } from "react-router-dom";
+import StyledButton from "../trips/Button.styled";
 
 
 
@@ -61,85 +62,6 @@ const signUp = (props) => {
       }
    };
 
-// class CreateUser extends Component {
-// constructor(props) {
-//    super(props);
-//    this.form = createRef();
-// }
-//    state = {
-//       username: "",
-//       email: "",
-//       password: "",
-//       passwordConfirm: "",
-//       errorUsername: "",
-//       errorPassword: "",
-//       errorConfirm: "",
-//       errorRequest:""
-//    }
-
-//    componentDidMount() {
-//       this.form.current.scrollIntoView({ behavior: 'smooth' });
-//    }
-
-//    handleInputChange = event => {
-//       const { name, value } = event.target;
-//       this.setState({
-//          [name]: value
-//       });
-//    };
-
-//    handleFormSubmit = event => {
-//       event.preventDefault();
-//       if (!(this.state.username && this.state.email && this.state.password && this.state.passwordConfirm)) {
-//          this.setState({
-//             errorUsername: "*Please fill out your username",
-//             errorEmail: "*Please fill out your email",
-//             errorPassword: "*Please fill out your password",
-//             errorConfirm: "*Please confirm your password"
-//          });
-//       } else if (this.state.password.length < 8) {
-//          this.setState({
-//             errorUsername: "",
-//             errorEmail: "",
-//             errorPassword: "*Password should be at least 8 characters long",
-//             errorConfirm: ""
-//          });
-//       } else if (this.state.password !== this.state.passwordConfirm) {
-//          this.setState({
-//             errorUsername: "",
-//             errorEmail: "",
-//             errorPassword: "*Make sure your passwords match",
-//             errorConfirm: ""
-//          });
-//       } else {
-//          const newUser = {
-//             username:this.state.username,
-//             email:this.state.email,
-//             password:this.state.password
-//          }
-//          API.signup(newUser).then(data => {
-//             if(data.token){
-//             this.props.methods.setUserId(data.user.id)
-//             this.props.methods.setToken(data.token)
-//             this.props.methods.setIsLoggedIn(true)
-//             }
-//             localStorage.setItem("token",data.token)
-//             location.href = `./mytrips`
-   
-//          })
-
-//          this.setState({
-//             username: "",
-//             email: "",
-//             password: "",
-//             passwordConfirm: "",
-//             errorUsername: "",
-//             errorPassword: "",
-//             errorConfirm: ""
-//          });
-//       }
-//    };
-
    
    
       return (
@@ -186,9 +108,9 @@ const signUp = (props) => {
                />
             </div>
             <p className="error">{error}</p>
-            <button type="submit" className="btn btn-outline-info">
+            <StyledButton type="submit" className="btn btn-outline-info">
                Sign Up
-            </button>
+            </StyledButton>
          </form>
       )
    

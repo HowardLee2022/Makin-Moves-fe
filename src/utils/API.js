@@ -36,6 +36,8 @@ const API = {
         return fetch(`${URL_PREFIX}/api/trips/${id}`).then(res=>res.json())
     },
 
+  
+
     addDays:(daysData)=>{
         return fetch(`${URL_PREFIX}/api/day`,{
             method:"POST",
@@ -46,6 +48,14 @@ const API = {
         })
     },
 
+    deleteTrip:(id,token)=>{
+        return fetch(`${URL_PREFIX}/api/trips/${id}`,{
+            method:"DELETE",
+            headers:{
+                "authorization":`Bearer ${token}`
+            }
+        })
+    },
 
     getDaysData:id=>{
         return fetch(`${URL_PREFIX}/api/day/day/${id}`).then(res=>res.json())

@@ -1,125 +1,185 @@
+import API from "../utils/API";
+import React, { useState, useEffect } from "react";
+import { useParams, Link, useNavigate} from "react-router-dom";
+import { Modal, Button } from "react-bootstrap";
+const dayjs = require('dayjs')
 
-import API from "../utils/API"
-import React,{useState, useEffect} from 'react'
-import {useParams, Link } from 'react-router-dom';
-
-
-
-
-
-
-// const postId = window.location.href.split('/').pop();
 
 const Days = (prop) => {
-    let {id} = useParams();
-    const [trips, setTrips] = useState([])
-    const [days, setDays] = useState([])
-    const [guestEmail,setGuestEmail] = useState();
+    let { id } = useParams();
+    const [trips, setTrips] = useState([]);
+    const [days, setDays] = useState([]);
+    const [guestEmail, setGuestEmail] = useState();
+    const [isShow, invokeModal] = useState(false);
+    const [guest, setGuest] = useState([]);
+    const navigate = useNavigate()
+
+    const initModal = () => {
+        return invokeModal(!isShow);
+    };
 
     const [daysData, setDaysData] = useState({
-        DayName:"",
-        TripId:id
+        DayName: "",
+        TripId: id,
     });
 
     const handleChange = (e) => {
         setDaysData({
-          ...daysData,
-          [e.target.name]: e.target.value,
+            ...daysData,
+            [e.target.name]: e.target.value,
         });
-      };
+    };
 
-      const handleChangeGuest = (e) => {
+    const handleChangeGuest = (e) => {
         setGuestEmail(e.target.value);
-      };
+    };
 
-//fetches trip
+    //fetches trip
     const fetchTrips = () => {
-        API.getTripData(id).then(data => {
-            setTrips(data)
-        
-        })
-    }
+        API.getTripData(id).then((data) => {
+            setTrips(data);
+            setGuest(data.user);
+        });
+    };
 
-    const fetchDays= () => {
-        API.getDaysData(id).then(data => {
-            setDays(data)
-        })
-    }
+    const fetchDays = () => {
+        API.getDaysData(id).then((data) => {
+            setDays(data);
+        });
+    };
 
-
-    const handleSubmit = (e) =>{
+    const handleSubmit = (e) => {
         e.preventDefault();
         API.addDays(daysData).then((response) => {
-            if(response.status == 200) {
+            if (response.status == 200) {
             }
-        })  
-    }
+        });
+    };
 
-    const handleSubmitGuest = (e) =>{
+    const handleSubmitGuest = (e) => {
         e.preventDefault();
         const addUser = {
-            email:guestEmail,
-            tripId:id
-        }
-        console.log(addUser)
+            email: guestEmail,
+            tripId: id,
+        };
+        console.log(addUser);
         API.addUserToTrip(addUser).then((response) => {
-            if(response.status == 200) {
+            if (response.status == 200) {
+                initModal();
+                setGuest((oldGuest) => [...oldGuest, { email: guestEmail }]);
             }
-        })  
+        });
+    };
+
+    const handleDelete = (e) => {
+        e.preventDefault();
+        API.deleteTrip(id,prop.token).then((response) => {
+            if(response.status==200){
+                // prop.set()
+                navigate("/mytrips")
+            }
+        })
     }
 
-    useEffect(()=>{
-        fetchTrips()
-        fetchDays()
-     },[])
-
-
+    useEffect(() => {
+        fetchTrips();
+        fetchDays();
+    }, []);
 
     return (
-        <div>
-        <h1>{trips.title}</h1>
-        <h1>{trips.description}</h1>
-        <h1>{trips.guest}</h1>
-        
-        
-        {days.map((day , i) => {
-               return(
-                <div>
-                <p>{day.DayName}</p>
-                <Link to={{pathname : `/mytrips/day/${day.id}`}}> <button >View Day</button></Link> 
-                </div>
 
-               )
-        })}
-           
+        <div class="row">
+            <div class="col-12 col-lg-2 m-3 bg-light border">
+                <br></br>
+                {trips.owner == prop.userId ? (
+                    <button className="w-100 btn btn-danger btn-lg" onClick={handleDelete}>Delete</button>
+                ) : null}
+                <br></br>
+                <br></br>
+                <h4 class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="text-muted">Attendees</span>
+                    <span class="badge bg-secondary rounded-pill">{guest?.length}</span>
+                </h4>
+                <ul class="list-group mb-3">
+                    {guest?.map((name) => {
+                        return (
+                            <li class="list-group-item d-flex justify-content-between lh-sm">
+                                <div>
+                                    <h6 class="my-0">{name.email}</h6>
+                                </div>
+                            </li>
+                        );
+                    })}
+                </ul>
+                {trips.owner == prop.userId ? (
+                    <button className="w-30 btn btn-primary btn-sm" onClick={initModal}>
+                        Add Guest
+                    </button>
+                ) : null}
 
-                
-        <form onSubmit={handleSubmit}>
-            <div >
-                <label >Add Day</label>
-                <input type="text"  placeholder="DayName" name="DayName"  onChange={handleChange} />
-            </div>
-            {/* <div >
-                <label >Activitie</label>
-                <input type="text"  placeholder="DayName" name="activities"  onChange={handleChange} />
-            </div> */}
-            <button >Submit</button>
-        </form>
 
 
-        <form onSubmit={handleSubmitGuest}>
-            <div >
-                <label >Add User</label>
-                <input type="text"  placeholder="email" name="guestEmail" value={guestEmail}  onChange={handleChangeGuest} />
             </div>
 
-            <button >Submit</button>
-        </form>
+            <div class="col-12 col-lg-9 m-3 border">
+                <div class="bg-light col-12">
+                    <div class="card p-3">
+                        <h1 class="text-center">{trips.title}</h1>
+                        <h1 class="text-center">
+                            {" "}
+                            {dayjs(trips.start).format('MMMM D, YYYY')} to {dayjs(trips.end).format('MMMM D, YYYY')}
+                        </h1>
+                        <h1 class="text-center">{trips.description}</h1>
+                        <h1>{trips.guest}</h1>
+                    </div>
                 </div>
-              
-      
-    
-    )
-}
 
-export default Days 
+                <div class="row bg-white border">
+                    {days.map((day, i) => {
+                        return (
+                            <div class="col-12  col-lg-4 mb-3">
+                                <div class="card card-body bg-white">
+                                    <h1>{day.DayName}</h1>
+                                    <Link to={{ pathname: `/mytrips/day/${day.id}` }}>
+                                        {" "}
+                                        <button class="w-30 btn btn-secondary btn-sm">
+                                            View Day
+                                        </button>
+                                    </Link>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+
+            <Modal show={isShow}>
+                <Modal.Header closeButton onClick={initModal}>
+                    <Modal.Title><b>Add Guest</b></Modal.Title>
+                </Modal.Header>
+
+                <form onSubmit={handleSubmitGuest}>
+                    <div className="form-group">
+                        <br></br>
+                        <label>Guest's Email</label>
+                        <input
+                            className="form-control"
+                            type="text"
+                            placeholder="email"
+                            name="guestEmail"
+                            value={guestEmail}
+                            onChange={handleChangeGuest}
+                        />
+                        <br></br>
+                    </div>
+                </form>
+
+                <Button variant="primary" onClick={handleSubmitGuest}>
+                    submit
+                </Button>
+            </Modal>
+        </div>
+    );
+};
+
+export default Days;
