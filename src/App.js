@@ -63,7 +63,7 @@ function App() {
             <MyTrip userId={userId} token={token} isLoggedIn={isLoggedIn} />
           }
         />
-        <Route path="/mytrips/:id" element={<Days />} />
+        <Route path="/mytrips/:id" element={<Days  userId={userId} token={token} isLoggedIn={isLoggedIn} />} />
         <Route path="/mytrips/days/:id" element={<Activities />} />
         <Route
           path="/Register"
