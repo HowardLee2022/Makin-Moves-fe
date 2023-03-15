@@ -2,8 +2,8 @@ import API from "../utils/API";
 import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate} from "react-router-dom";
 import { Modal, Button } from "react-bootstrap";
+const dayjs = require('dayjs')
 
-// const postId = window.location.href.split('/').pop();
 
 const Days = (prop) => {
     let { id } = useParams();
@@ -127,7 +127,7 @@ const Days = (prop) => {
                         <h1 class="text-center">{trips.title}</h1>
                         <h1 class="text-center">
                             {" "}
-                            {trips.start} --- {trips.end}
+                            {dayjs(trips.start).format('MMMM D, YYYY')} to {dayjs(trips.end).format('MMMM D, YYYY')}
                         </h1>
                         <h1 class="text-center">{trips.description}</h1>
                         <h1>{trips.guest}</h1>

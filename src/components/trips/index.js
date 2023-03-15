@@ -4,6 +4,7 @@ import API from "../../utils/API";
 import { Modal, Button } from "react-bootstrap";
 import StyledButton from "./Button.styled";
 import styled from "styled-components";
+const dayjs = require('dayjs')
 
 const Trips = (prop) => {
   const data = { prop };
@@ -97,7 +98,7 @@ const Trips = (prop) => {
               </ul>
             </div>
             <div class="col-md-5 col-lg-8">
-              <h4>Date of Trip: {tripData.start}</h4>
+              <h4>Date of Trip: {dayjs(tripData.start).format('MMMM D, YYYY')}</h4>
               <h4>Cost: {tripData.cost}</h4>
               <h4>Description:</h4>
               <p>{tripData.description}</p>
