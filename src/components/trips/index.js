@@ -3,8 +3,7 @@ import React, { useState, useEffect } from "react";
 import API from "../../utils/API";
 import { Modal, Button } from "react-bootstrap";
 import StyledButton from "./Button.styled";
-
-
+import styled from "styled-components";
 
 const Trips = (prop) => {
   const data = { prop };
@@ -106,7 +105,7 @@ const Trips = (prop) => {
             <div class="row g-3">
               <div class="col-md-5 col-lg-4 ">
                 {tripData.owner == prop.id ? (
-                  <StyledButton 
+                  <StyledButton
                     className="btn btn-outline-info"
                     onClick={initModal}
                   >
@@ -122,9 +121,7 @@ const Trips = (prop) => {
                   }}
                 >
                   {" "}
-                  <StyledButton className="">
-                    iternary
-                  </StyledButton>
+                  <StyledButton className="">iternary</StyledButton>
                 </Link>
                 <StyledButton className="">chat</StyledButton>
               </div>
@@ -138,7 +135,7 @@ const Trips = (prop) => {
           <Modal.Title>React Modal Popover Example</Modal.Title>
         </Modal.Header>
 
-        <form>
+        <Form>
           <div>
             <label>Title</label>
             <input
@@ -150,7 +147,7 @@ const Trips = (prop) => {
             />
           </div>
           <div>
-            <label>start Date</label>
+            <label>Start Date</label>
             <input
               type="date"
               placeholder="start date"
@@ -160,7 +157,7 @@ const Trips = (prop) => {
             />
           </div>
           <div>
-            <label>end date</label>
+            <label>End date</label>
             <input
               type="date"
               placeholder="end date"
@@ -189,14 +186,74 @@ const Trips = (prop) => {
               onChange={handleChange}
             ></textarea>
           </div>
-        </form>
+        </Form>
 
-        <StyledButton variant="primary" onClick={handleSubmit}>
+        <StyledButton className="btn btn-outline-info" variant="primary" onClick={handleSubmit}>
           submit
         </StyledButton>
       </Modal>
     </div>
   );
 };
+
+const Form = styled.form`
+  text-align: center;
+  background-image: linear-gradient(skyblue, whitesmoke);
+  padding: 13px ;
+
+  label {
+    font-weight: bolder;
+    padding: 7px;
+    color: palevioletred;
+    text-shadow: 1px 1px 1px #000000;
+    font-size: 23px;
+    text-align: left;
+  }
+
+  input {
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid grey;
+    padding: 10px;
+    border-radius: 50px;
+    width: 100%;
+  }
+
+  input,
+  label {
+    display: block;
+    margin-top: 20px;
+  }
+/* 
+  input {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px solid grey;
+    padding: 10px;
+    border-radius: 50px;
+  } */
+
+  textarea {
+    border: 1px solid grey;
+    border-radius: 20px;
+    width: 100%;
+  }
+
+  button {
+    color: palevioletred;
+    font-size: 1em;
+    margin: 1em;
+    padding: 0.25em 1em;
+    border: 2px solid palevioletred;
+    border-radius: 50px;
+    background-color: #2c444c;
+    &:hover{
+        background-color: #54818d;
+    }
+  }
+
+`;
 
 export default Trips;

@@ -76,48 +76,55 @@ const Days = (prop) => {
 
 
     return (
-        <div>
-        <h1>{trips.title}</h1>
-        <h1>{trips.description}</h1>
-        <h1>{trips.guest}</h1>
-        
-        
-        {days.map((day , i) => {
-               return(
-                <div>
-                <p>{day.DayName}</p>
-                <Link to={{pathname : `/mytrips/day/${day.id}`}}> <button >View Day</button></Link> 
-                </div>
-
-               )
-        })}
-           
-
-                
+        <div class="row">
+        <div class="col-12 col-lg-2 m-3 bg-light border">
         <form onSubmit={handleSubmit}>
-            <div >
+            <div className="form-group">
                 <label >Add Day</label>
-                <input type="text"  placeholder="DayName" name="DayName"  onChange={handleChange} />
+                <input className="form-control" type="text"  placeholder="DayName" name="DayName"  onChange={handleChange} />
             </div>
             {/* <div >
                 <label >Activitie</label>
                 <input type="text"  placeholder="DayName" name="activities"  onChange={handleChange} />
             </div> */}
-            <button >Submit</button>
+            <button className="w-30 btn btn-primary btn-sm" >Submit</button>
         </form>
 
 
         <form onSubmit={handleSubmitGuest}>
-            <div >
+            <div className="form-group">
                 <label >Add User</label>
-                <input type="text"  placeholder="email" name="guestEmail" value={guestEmail}  onChange={handleChangeGuest} />
+                <input className="form-control"
+                type="text"  placeholder="email" name="guestEmail" value={guestEmail}  onChange={handleChangeGuest} />
             </div>
 
-            <button >Submit</button>
+            <button className="w-30 btn btn-primary btn-sm " >Submit</button>
         </form>
+
+        </div>
+        <div class="col-12 col-lg-9 m-3 border">
+            <div class="bg-light p-2 rounded">
+                     <h1 class="text-center">{trips.title}</h1>
+                      <h1 class="text-center">{trips.description}</h1>
+                        <h1>{trips.guest}</h1>
+        
+                <div class="bg-white border">
+                    {days.map((day , i) => {
+                         return(
+                        <div class="border">
+                        <h1 class="center-align">{day.DayName}</h1>
+                        <Link to={{pathname : `/mytrips/day/${day.id}`}}> <button class="w-30 btn btn-secondary btn-sm" >View Day</button></Link> 
+                        </div>
+
+                             )
+                      })}
+                 </div>
+
+
+        </div>
                 </div>
               
-      
+      </div>
     
     )
 }

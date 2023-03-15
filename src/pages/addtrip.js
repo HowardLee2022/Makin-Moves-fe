@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import API from "../utils/API";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styled from "styled-components";
+import windowImg from "./Airplanewindow.png"
 
 function AddTrip(prop) {
   const navigate = useNavigate();
@@ -49,7 +50,7 @@ function AddTrip(prop) {
           />
         </div>
         <div>
-          <label>start Date</label>
+          <label>Start Date</label>
           <input
             type="date"
             placeholder="start date"
@@ -58,7 +59,7 @@ function AddTrip(prop) {
           />
         </div>
         <div>
-          <label>end date</label>
+          <label>End date</label>
           <input
             type="date"
             placeholder="end date"
@@ -67,7 +68,7 @@ function AddTrip(prop) {
           />
         </div>
         <div>
-          <label>cost</label>
+          <label>Cost</label>
           <input
             type="number"
             placeholder="cost"
@@ -84,7 +85,7 @@ function AddTrip(prop) {
             onChange={handleChange}
           ></textarea>
         </div>
-        <button className="btn btn-outline-info">Submit</button>
+        <button >Submit</button>
       </Form>
     </MainCard>
   );
@@ -92,51 +93,84 @@ function AddTrip(prop) {
 
 const Form = styled.form`
   text-align: center;
-  padding: 13px;
-  background: url("./airplainwindow.png");
-  background-color: salmon;
-  border-radius: 250px;
-  box-shadow: 0px 15px 10px grey, 8px 5px 5px grey;
+  padding: 13px ;
+  width: 50%;
+  margin: 0 auto;
+  background-color: rgba(255,255,255,0.3);
+  border-radius: 50px;
+  height: 100%;
+  padding: 0 30px;
+  /* background-size: cover; */
+  
+  
+  overflow:hidden;
+  /* box-shadow: 0px 15px 10px grey, 8px 5px 5px grey; */
+  /* background-size: 900px 1000px; */
+  
+  
+  
 
   label {
-    font-weight: bold;
-    padding: 11px;
+    font-weight: bolder;
+    padding: 7px;
+    color: palevioletred;
+    text-shadow: 1px 1px 1px #000000;
+    font-size: 23px;
+    text-align: left;
   }
 
   input {
-    text-align: center;
+    text-align: left;
     margin-left: auto;
     margin-right: auto;
-    border: 3px solid deepskyblue;
+    border: 1px solid grey;
     padding: 10px;
+    border-radius: 50px;
+    width: 100%;
+    
   }
 
   input,
   label {
     display: block;
+    margin-top: 20px;
   }
 
   button {
-    color: palevioletred;
+    color: white;
     font-size: 1em;
     margin: 1em;
     padding: 0.25em 1em;
-    border: 2px solid palevioletred;
-    border-radius: 3px;
+    border: 2px solid white;
+    border-radius: 50px;
+    font-size: 23px;
+    background-color: #2c444c;
+    &:hover{
+        background-color: #54818d;
+    }
   }
 
   textarea {
-    border: 3px solid deepskyblue;
+    border: 1px solid grey;
+    border-radius: 20px;
+    width: 100%;
   }
 `;
 
 const MainCard = styled.main`
-  
-  background-color: green;
-  border-radius: 15px;
+  background-image: url(${windowImg});
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 30px;
+  /* height: 800px; */
+  /* background-size: 2000px 1000px; */
+  /* border-radius: 200px; */
+  /* background-color: green; */
+  /* border-radius: 15px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   margin: 40px 0;
-  padding: 60px;
+  padding: 60px; */
 `;
 
 export default AddTrip;
