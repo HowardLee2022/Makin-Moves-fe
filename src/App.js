@@ -52,7 +52,7 @@ function App() {
     <Router>
       <Nav isLoggedIn={isLoggedIn} userId={userId} logout={logout} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/Makin-Moves-fe" element={<Home />} />
         <Route
           path="/mytrips/addtrip"
           element={<Addtrip userId={userId} token={token} />}
