@@ -16,7 +16,7 @@ import io from "socket.io-client";
 import Homechat from "./pages/homechat";
 import Chat from "./pages/chat";
 
-const socket = io.connect("http://localhost:4000"); //Chat server
+const socket = io.connect("https://makin-moves-be.herokuapp.com/"); //Chat server
 
 function App() {
   const [token, setToken] = useState("");
