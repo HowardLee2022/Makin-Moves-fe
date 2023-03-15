@@ -124,7 +124,7 @@ const Trips = (prop) => {
                   {" "}
                   <StyledButton className="">iternerary</StyledButton>
                 </Link>
-                <StyledButton className="">chat</StyledButton>
+                <Link to={{ pathname: `/homechat` }}><StyledButton className="">chat</StyledButton>  </Link>
               </div>
             </div>
           </div>
