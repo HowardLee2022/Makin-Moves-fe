@@ -1,5 +1,7 @@
 import React from "react";
 import "./style.css"
+import styled from "styled-components";
+
 
 function Carousel(props) {
   return (
@@ -9,7 +11,7 @@ function Carousel(props) {
         <div className="carouselnotboot-item">
           <div className="d-block w-100 img1" />
           <div className="carouselnotboot-caption">
-            <h1><a href="https://www.visithalongbay.com">Ha Long Bay, VietNam</a></h1>
+            <Title><a href="https://www.visithalongbay.com">Ha Long Bay, VietNam</a></Title>
           </div>
         </div>
       </div>
@@ -24,5 +26,9 @@ function Carousel(props) {
     </div>
   );
 }
+
+const Title = styled.h1`
+  text-shadow: 3px 3px black;
+`
 
 export default Carousel;
