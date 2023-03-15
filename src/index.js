@@ -7,8 +7,8 @@ import App from './App';
 
 // dotenv.config();
 // require("dotenv").config();
-console.log(process.env.HARPERDB_URL);
-console.log(process.env.HARPERDB_PW);
+// console.log(process.env.HARPERDB_URL);
+// console.log(process.env.HARPERDB_PW);
 
 
 // function MyComponent() {
