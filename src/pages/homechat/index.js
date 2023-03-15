@@ -5,11 +5,13 @@ const Home = ({ username, setUsername, room, setRoom, socket }) => {
   const navigate = useNavigate();
 
   const joinRoom = () => {
-    if (room !== "" && username !== "") {
+    if (room && username) {
       socket.emit("join_room", { username, room });
+      navigate('/chat', { replace: true });
+    }else{
+      alert("username or room name is null")
     }
     // Redirect to /chat
-    navigate('/chat', { replace: true });
   };
 
   return (
