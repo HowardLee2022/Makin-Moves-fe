@@ -9,26 +9,33 @@
 /* Room and users component */
 .roomAndUsersColumn {
   border-right: 10px solid #dfdfdf;
+  background-color: lightcyan;
 }
 .roomTitle {
   width: 400px;
   margin-top: 50px;
   margin-bottom: 60px;
+  margin-left: 15px;
   text-transform: uppercase;
   font-weight: 800;
-  font-size: 3rem;
+  font-size: 3.3rem;
   color: #0c6178;
+  text-shadow: 1px 1px 1px #000000;
 }
 .usersTitle {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1.6rem;
+  font-weight: bolder;
   color: #4b494c;
+  margin-left: 15px;
+  
 }
 .usersList {
   list-style-type: none;
   padding-left: 0;
   margin-bottom: 90px;
+  margin-left: 100px;
   color: #4b494c;
+  font-size: 20px;
 }
 .usersList li {
   margin-bottom: 12px;
@@ -39,25 +46,32 @@
   height: 85vh;
   overflow: auto;
   padding: 10px 10px 10px 40px;
+  background-color: lightcyan
 }
 .message {
   background: rgb(2, 152, 152);
   border-radius: 6px;
   margin-bottom: 24px;
-  max-width: 600px;
+  max-width: 750px;
   padding: 12px;
+  margin-left: 10px;
 }
 .msgMeta {
   color: rgb(153, 217, 234);
   font-size: 0.75rem;
 }
 .msgText {
-  color: #fff;
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: 700;
+  font-size: large;
+  margin-top: 10px;
 }
 
 /* Message input and button */
 .sendMessageContainer {
   padding: 16px 20px 20px 16px;
+  background-color: lightcyan
 }
 .messageInput {
   padding: 14px;
@@ -66,4 +80,5 @@
   border-radius: 6px;
   border: 3px solid teal;
   font-size: 0.9rem;
+  margin-left: 40px;
 }
