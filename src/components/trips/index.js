@@ -69,16 +69,16 @@ const Trips = (prop) => {
   };
 
   return (
-    <div>
-      <div class="container my-3">
-        <div class="bg-light p-2 rounded">
+    <OGdiv>
+      <MainDiv class="container my-3">
+        <div >
           <div class="row">
             <h1 class="center-align">{tripData.title}</h1>
           </div>
           <div class="row g-3">
             <div class="col-md-5 col-lg-4 ">
               <h4 class="d-flex justify-content-between align-items-center mb-3">
-                <span class="text-muted">Attendees</span>
+                <span>Attendees</span>
                 <span class="badge bg-secondary rounded-pill">
                   {guest.length}
                 </span>
@@ -98,7 +98,7 @@ const Trips = (prop) => {
             </div>
             <div class="col-md-5 col-lg-8">
               <h4>Date of Trip: {tripData.start}</h4>
-              <h4>Cost: {tripData.cost}</h4>
+              <h4>Estimated Trip Cost: {tripData.cost}</h4>
               <h4>Description:</h4>
               <p>{tripData.description}</p>
             </div>
@@ -109,7 +109,7 @@ const Trips = (prop) => {
         
                     onClick={initModal}
                   >
-                    edit trip
+                    Edit Trip
                   </StyledButton>
                 ) : null}
               </div>
@@ -121,14 +121,14 @@ const Trips = (prop) => {
                   }}
                 >
                   {" "}
-                  <StyledButton className="">iternary</StyledButton>
+                  <StyledButton className="">Itinerary</StyledButton>
                 </Link>
-                <StyledButton className="">chat</StyledButton>
+                <StyledButton className="">Chat</StyledButton>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </MainDiv>
 
       <Modal show={isShow}>
         <Modal.Header closeButton onClick={initModal}>
@@ -192,13 +192,22 @@ const Trips = (prop) => {
           Submit
         </StyledButton>
       </Modal>
-    </div>
+    </OGdiv>
   );
 };
 
+const OGdiv = styled.div`
+background-image: linear-gradient(skyblue, #FFD580);
+
+
+`;
+
+
+
+
 const Form = styled.form`
   text-align: center;
-  background-image: linear-gradient(skyblue, whitesmoke);
+  background-image: linear-gradient(skyblue, #FFD580);
   padding: 13px ;
 
   label {
@@ -253,6 +262,30 @@ const Form = styled.form`
         background-color: #54818d;
     }
   }
+
+`;
+
+const MainDiv = styled.div`
+text-align: center;
+  /* background-image: linear-gradient(skyblue, whitesmoke); */
+  padding: 30px;
+/* padding: 13px; */
+  width: 70%;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  height: 100%;
+  /* padding: 0 30px; */
+
+  h1{
+    font-weight: bolder;
+    padding: 7px;
+    color:  #2c444c;
+    /* text-shadow: 1px 1px 1px #000000; */
+    font-size: 35px;
+    
+  }
+  
 
 `;
 
