@@ -14,7 +14,7 @@ const Nav = (props) => {
   };
   return (
     <nav>
-      <NavLink className="navbar-brand" to="/">
+      <NavLink className="navbar-brand" to="/Makin-Moves-fe">
         <h1 className="display-5">Makin' Moves</h1>
       </NavLink>
 
