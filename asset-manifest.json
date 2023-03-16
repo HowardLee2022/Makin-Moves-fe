@@ -1,15 +1,16 @@
 {
   "files": {
-    "main.css": "/Makin-Moves-fe/static/css/main.a2a5cbfa.css",
-    "main.js": "/Makin-Moves-fe/static/js/main.ac7d9cf3.js",
+    "main.css": "/Makin-Moves-fe/static/css/main.c74516ec.css",
+    "main.js": "/Makin-Moves-fe/static/js/main.310f6272.js",
     "static/media/HaLongBay.png": "/Makin-Moves-fe/static/media/HaLongBay.ce975b41163a8f57c8ee.png",
+    "static/media/LogoMM.png": "/Makin-Moves-fe/static/media/LogoMM.7feb0360c0928ce16195.png",
     "static/media/Airplanewindow.png": "/Makin-Moves-fe/static/media/Airplanewindow.7d48b9275f2219d289aa.png",
     "index.html": "/Makin-Moves-fe/index.html",
-    "main.a2a5cbfa.css.map": "/Makin-Moves-fe/static/css/main.a2a5cbfa.css.map",
-    "main.ac7d9cf3.js.map": "/Makin-Moves-fe/static/js/main.ac7d9cf3.js.map"
+    "main.c74516ec.css.map": "/Makin-Moves-fe/static/css/main.c74516ec.css.map",
+    "main.310f6272.js.map": "/Makin-Moves-fe/static/js/main.310f6272.js.map"
   },
   "entrypoints": [
-    "static/css/main.a2a5cbfa.css",
-    "static/js/main.ac7d9cf3.js"
+    "static/css/main.c74516ec.css",
+    "static/js/main.310f6272.js"
   ]
 }
