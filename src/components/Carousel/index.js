@@ -8,7 +8,7 @@ function Carousel(props) {
     <div id="carouselnotbootWrapperFade" className="carousel slide carousel-fade" data-ride="carousel" {...props}>
       {props.children}
       <div className="carouselnotboot-inner">
-        <div className="carouselnotboot-item">
+        <div className="carouselnotboot-item active">
           <div className="d-block w-100 img1" />
           <div className="carouselnotboot-caption">
             <Title><a href="https://www.visithalongbay.com">Ha Long Bay, VietNam</a></Title>
