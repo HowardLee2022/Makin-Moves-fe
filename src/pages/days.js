@@ -3,6 +3,8 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link, useNavigate} from "react-router-dom";
 import { Modal, Button } from "react-bootstrap";
 const dayjs = require('dayjs')
+import styled from "styled-components";
+import StyledButton from "../components/trips/Button.styled";
 
 
 const Days = (prop) => {
@@ -87,6 +89,7 @@ const Days = (prop) => {
     }, []);
 
     return (
+        <OGdiv>
 
         <div class="row">
             <div class="col-12 col-lg-2 m-3 bg-light border">
@@ -112,18 +115,18 @@ const Days = (prop) => {
                     })}
                 </ul>
                 {trips.owner == prop.userId ? (
-                    <button className="w-30 btn btn-primary btn-sm" onClick={initModal}>
+                    <StyledButton className="w-30 btn btn-primary btn-sm" onClick={initModal}>
                         Add Guest
-                    </button>
+                    </StyledButton>
                 ) : null}
 
 
 
             </div>
 
-            <div class="col-12 col-lg-9 m-3 border">
-                <div class="bg-light col-12">
-                    <div class="card p-3">
+            <div class="col-12 col-lg-9 m-3">
+                <Trip class="bg-light col-12">
+                    <div >
                         <h1 class="text-center">{trips.title}</h1>
                         <h1 class="text-center">
                             {" "}
@@ -132,9 +135,9 @@ const Days = (prop) => {
                         <h1 class="text-center">{trips.description}</h1>
                         <h1>{trips.guest}</h1>
                     </div>
-                </div>
+                </Trip>
 
-                <div class="row bg-white border">
+                <div class="row">
                     {days.map((day, i) => {
                         return (
                             <div class="col-12  col-lg-4 mb-3">
@@ -142,9 +145,9 @@ const Days = (prop) => {
                                     <h1>{day.DayName}</h1>
                                     <Link to={{ pathname: `/mytrips/day/${day.id}` }}>
                                         {" "}
-                                        <button class="w-30 btn btn-secondary btn-sm">
+                                        <StyledButton class="w-30 btn btn-secondary btn-sm">
                                             View Day
-                                        </button>
+                                        </StyledButton>
                                     </Link>
                                 </div>
                             </div>
@@ -174,12 +177,36 @@ const Days = (prop) => {
                     </div>
                 </form>
 
-                <Button variant="primary" onClick={handleSubmitGuest}>
-                    submit
-                </Button>
+                <StyledButton variant="primary" onClick={handleSubmitGuest}>
+                    Submit
+                </StyledButton>
             </Modal>
         </div>
+        </OGdiv>
     );
 };
+
+
+
+const OGdiv = styled.div`
+
+background-image: linear-gradient(skyblue, #FFD580);
+/* margin: 0 auto; */
+text-align: center;
+
+
+
+`;
+
+
+
+const Trip = styled.div`
+
+background-color: rgba(255, 255, 255, 0.3);
+border-radius: 
+
+`;
+
+
 
 export default Days;

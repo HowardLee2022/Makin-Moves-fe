@@ -20,7 +20,7 @@ const RoomAndUsers = ({ socket, username, room }) => {
     const __createdtime__ = Date.now();
     socket.emit('leave_room', { username, room, __createdtime__ });
     // Redirect to home page
-    navigate('/', { replace: true });
+    navigate('/Makin-Moves-fe', { replace: true });
   };
 
   return (

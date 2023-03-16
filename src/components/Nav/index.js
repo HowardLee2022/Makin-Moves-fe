@@ -3,6 +3,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 import styled from "styled-components";
+import Logo from "../Nav/LogoMM.png"
 
 
 const Nav = (props) => {
@@ -12,55 +13,70 @@ const Nav = (props) => {
     props.logout();
     navigate("/login");
   };
-  return (
-    <nav>
-      <NavLink className="navbar-brand" to="/">
-        <h1 className="display-5">Makin' Moves</h1>
-      </NavLink>
 
-        {!props.isLoggedIn && (
-          
-      <Ul style={{ listStyleType: "none" }}>
-            <li className="nav-item active">
-              <NavLink className="nav-link" to="/Register">
-                Register
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/login">
-                Login
-              </NavLink>
-            </li>
-          </Ul>
+  return (
+
+
+    <div className="header">
+      <NavLink className={({ isActive }) => {
+        if (isActive) {
+          return 'active'
+        } else {
+          return 'notActive'
+        };
+      }} to="/Makin-Moves-fe"><h1>Makin' Moves</h1></NavLink>
+      
+
+      {!props.isLoggedIn && (
+        <div className="nav">
+        <NavLink className={({ isActive }) => {
+          if (isActive) {
+            return 'active'
+          } else {
+            return 'notActive'
+          };
+        }} to="/login">Login</NavLink>
+        <NavLink className={({ isActive }) => {
+          if (isActive) {
+            return 'active'
+          } else {
+            return 'notActive'
+          };
+        }} to="/Register">Register</NavLink>
+        </div>
         )}
 
-        {props.isLoggedIn && (
-          <Ul>
-            <li>
-              <NavLink className="nav-link" to="/mytrips">
-                My Trip
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="nav-link" to="/mytrips/addtrip">
-                Create A Trip
-              </NavLink>
-            </li>
-            <li>
-              <button className="nav-link" onClick={logOut}>
-                Logout
-              </button>
-            </li>
-          </Ul>
+      {props.isLoggedIn && (
+        <div className="nav">
+        <NavLink className={({ isActive }) => {
+          if (isActive) {
+            return 'active'
+          } else {
+            return 'notActive'
+          };
+        }} to="/mytrips">My Trips</NavLink> 
+        <NavLink className={({ isActive }) => {
+          if (isActive) {
+            return 'active'
+          } else {
+            return 'notActive'
+          };
+        }} to="/mytrips/addtrip">Create Trip</NavLink>
+        <button className="nav-link" onClick={logOut}>
+          Logout
+        </button>
+        </div>
         )}
       
-    </nav>
-  );
+    </div>
+
+  )
+
 };
 
 const Ul = styled.ul`
   display: flex;
-  text-align: end;
+  
  
 
   button {

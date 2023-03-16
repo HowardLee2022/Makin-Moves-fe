@@ -35,12 +35,17 @@ body {
   color: #daeefe;
   border: 1px solid teal;
   background: #0c6178;
+  text-shadow: 1px 1px 1px #000000;
+  margin-top: 90px;
+  margin-left: 15px;
 }
 .btn-primary {
   background: #54818d;
   color: white;
+  text-shadow: 1px 1px 1px #000000;
 }
 .btn-secondary {
-  background: rgb(0, 24, 111);
+  background: #5a99aa;
   color: #fff;
+  text-shadow: 1px 1px 1px #000000;
 }
