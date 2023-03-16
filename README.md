@@ -1,70 +1,23 @@
-# Getting Started with Create React App
+# Makin-Moves
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
+Makin-Move is web application that help users plan their next trip. Users are able to register for an account and create a trip and plan out their trip. Users can add their friends to the trips that they made to allow him/her and their friends to add their desired or favorite activities on the trip. 
+<br>
+In this project a group of four members collaborated with each other to build this application. We learned how to build a front end using react and we used sequelize for our backend application.
 
-## Available Scripts
+## Usage
+Start by creating account by clicking on the register button in the Navbar. When account is created, user will be automaticallyy logged into the application. After logging in, user will be able to see a `Create a Trip` button or they can click on the create a trip in the Navbar. Enter the required trip information and our application will create a trip for you. Depending on the duration of the trip the application will automatically build the amount of days for you. On each day card user can click on the `view day` and add activities into the day. If user want to delete the trip they can simply click on `Delete` to remove it. Each trip has a `chat` button that allow the user and their friend to join a chat room to discuss about their trip in a live chatroom.
 
-In the project directory, you can run:
 
-### `npm start`
+## Screenshots
+![my trip page](./mytrip.jpg)
+![create a trip](./Create%20trip.jpg)
+![activity](./Activity.jpg)
+![chatroom](./chatroom.jpg)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Credits
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Thien Nguyen - Project Manager
+- Howard Lee - Github Admin
+- Jackie Lee - Javascript
+- Nhan Duong - CSS
