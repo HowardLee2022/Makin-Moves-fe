@@ -3,6 +3,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 import styled from "styled-components";
+import Logo from "../Nav/LogoMM.png"
 
 
 const Nav = (props) => {
@@ -14,6 +15,7 @@ const Nav = (props) => {
   };
   return (
     <nav>
+      {/* <div><img src={Logo} alt="" style={{ width: '250px', height: 'auto' }}></img> </div> */}
       <NavLink className="navbar-brand" to="/">
         <h1 className="display-5">Makin' Moves</h1>
       </NavLink>
@@ -60,7 +62,7 @@ const Nav = (props) => {
 
 const Ul = styled.ul`
   display: flex;
-  text-align: end;
+  
  
 
   button {

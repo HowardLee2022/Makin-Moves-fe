@@ -79,7 +79,7 @@ const Trips = (prop) => {
           <div class="row g-3">
             <div class="col-md-5 col-lg-4 ">
               <h4 class="d-flex justify-content-between align-items-center mb-3">
-                <span>Attendees</span>
+                <span><b>Attendees</b></span>
                 <span class="badge bg-secondary rounded-pill">
                   {guest.length}
                 </span>
@@ -91,17 +91,16 @@ const Trips = (prop) => {
                       <div>
                         <h6 class="my-0">{name.username}</h6>
                       </div>
-                      <span class="text-muted">button to remove?</span>
+                      
                     </li>
                   );
                 })}
               </ul>
             </div>
             <div class="col-md-5 col-lg-8">
-              <h4>Date of Trip: {tripData.start}</h4>
-              <h4>Estimated Trip Cost: {tripData.cost}</h4>
-              <h4>Description:</h4>
-              <p>{tripData.description}</p>
+              <h4><b>Date of Trip:</b> {tripData.start}</h4>
+              <h4><b>Estimated Trip Cost:</b> {tripData.cost}</h4>
+              <h4><b>Description:</b>{tripData.description}</h4>
             </div>
             <div class="row g-3">
               <div class="col-md-5 col-lg-4 ">
@@ -122,9 +121,9 @@ const Trips = (prop) => {
                   }}
                 >
                   {" "}
-                  <StyledButton className="">iternerary</StyledButton>
+                  <StyledButton className="">Itinerary</StyledButton>
                 </Link>
-                <Link to={{ pathname: `/homechat` }}><StyledButton className="">chat</StyledButton>  </Link>
+                <Link to={{ pathname: `/homechat` }}><StyledButton className="">Chat</StyledButton>  </Link>
               </div>
             </div>
           </div>
@@ -235,15 +234,7 @@ const Form = styled.form`
     display: block;
     margin-top: 20px;
   }
-/* 
-  input {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    border: 3px solid grey;
-    padding: 10px;
-    border-radius: 50px;
-  } */
+
 
   textarea {
     border: 1px solid grey;
@@ -285,6 +276,10 @@ text-align: center;
     /* text-shadow: 1px 1px 1px #000000; */
     font-size: 35px;
     
+  }
+
+  h4 {
+    padding-top: 10px;
   }
   
 
