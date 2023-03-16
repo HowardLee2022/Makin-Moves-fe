@@ -98,9 +98,10 @@ const Trips = (prop) => {
               </ul>
             </div>
             <div class="col-md-5 col-lg-8">
-              <h4><b>Date of Trip:</b> {tripData.start}</h4>
-              <h4><b>Estimated Trip Cost:</b> {tripData.cost}</h4>
-              <h4><b>Description:</b>{tripData.description}</h4>
+            <h4>Date of Trip: {dayjs(tripData.start).format('MMMM D, YYYY')}</h4>
+              <h4>Estimated Trip Cost: {tripData.cost}</h4>
+              <h4>Description:</h4>
+              <p>{tripData.description}</p>
             </div>
             <div class="row g-3">
               <div class="col-md-5 col-lg-4 ">
